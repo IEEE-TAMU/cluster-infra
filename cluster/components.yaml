@@ -25,8 +25,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  dependsOn:
-    - name: secrets
   retryInterval: 1m
   timeout: 5m
   sourceRef:

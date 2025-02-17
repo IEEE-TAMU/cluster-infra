@@ -1,0 +1,41 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: MariaDB
+metadata:
+  name: mariadb
+spec:
+  rootPasswordSecretKeyRef:
+    name: mariadb
+    key: password
+    generate: false
+
+  storage:
+    size: 1Gi
+
+  myCnf: |
+    [mariadb]
+    bind-address=*
+    default_storage_engine=InnoDB
+    binlog_format=row
+    innodb_autoinc_lock_mode=2
+    innodb_buffer_pool_size=1024M
+    max_allowed_packet=256M
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      memory: 1Gi
+
+  livenessProbe:
+    periodSeconds: 10
+    timeoutSeconds: 10
+
+  readinessProbe:
+    periodSeconds: 10
+    timeoutSeconds: 10
+
+  startupProbe:
+    failureThreshold: 10
+    periodSeconds: 5
+    timeoutSeconds: 5

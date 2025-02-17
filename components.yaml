@@ -1,19 +1,23 @@
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: secrets
-#   namespace: flux-system
-# spec:
-#   interval: 1h
-#   retryInterval: 1m
-#   timeout: 5m
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   path: ./secrets
-#   prune: true
-#   wait: true
-# ---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: secrets
+  namespace: flux-system
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./secrets
+  prune: true
+  wait: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
@@ -21,8 +25,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  # dependsOn:
-    # - name: secrets
+  dependsOn:
+    - name: secrets
   retryInterval: 1m
   timeout: 5m
   sourceRef:
@@ -40,7 +44,7 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
-    # - name: secrets
+    - name: secrets
     - name: infra
   sourceRef:
     kind: GitRepository

@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mariadb-operator
+spec:
+  chart:
+    spec:
+      chart: mariadb-operator
+      sourceRef:
+        kind: HelmRepository
+        name: mariadb-operator
+      version: "0.37.1"
+  interval: 1h0m0s
+  values:
+    # metrics:
+    #   enabled: true
+    #   serviceMonitor:
+    #     enabled: true
+    # webhook:
+    #   cert:
+    #     certManager:
+    #       enabled: true
+    #   serviceMonitor:
+    #     enabled: true
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mariadb-operator-crds
+spec:
+  chart:
+    spec:
+      chart: mariadb-operator-crds
+      sourceRef:
+        kind: HelmRepository
+        name: mariadb-operator
+      version: "0.37.1"
+  interval: 1h0m0s

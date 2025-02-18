@@ -20,6 +20,8 @@ spec:
               mountPath: /opt/kumomta/etc/policy
             - name: kumo-dkim-secrets
               mountPath: /opt/kumomta/etc/dkim/ieeetamu.org
+            - name: brevo-secrets
+              mountPath: /var/run/secrets/brevo
             - name: kumo-spool
               mountPath: /tmp/kumo-spool
           ports:
@@ -31,6 +33,9 @@ spec:
         - name: kumo-dkim-secrets
           secret:
             secretName: kumo-dkim-secrets
+        - name: brevo-secrets
+          secret:
+            secretName: brevo-secrets
         # this is primarily an outbound relay so not holding onto mail
         # is fine... if it fails and the pod restarts, its fine to lose
         - name: kumo-spool

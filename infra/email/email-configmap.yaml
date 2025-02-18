@@ -62,11 +62,41 @@ data:
       listener_domains:setup { '/opt/kumomta/etc/policy/listener_domains.toml' }
     )
 
-    -- Configure traffic shaping using the shaping.lua policy helper.
-    kumo.on('get_egress_path_config', shaping:setup {
+    local shaper = shaping:setup {
       '/opt/kumomta/share/policy-extras/shaping.toml',
       '/opt/kumomta/etc/policy/shaping.toml'
-    })
+    }
+
+    -- override options in the default shaper to inject secrets
+    local function get_egress_path_config(
+      domain,
+      egress_source,
+      site_name,
+      skip_make
+    )
+      local params = shaper(
+        domain,
+        egress_source,
+        site_name,
+        true -- skip the make so we can inject secrets
+      )
+      if domain == 'brevomail.ieeetamu.org' then -- add credentials to relay through brevo
+        params.smtp_auth_plain_username = '85e6ef001@smtp-brevo.com'
+        params.smtp_auth_plain_password = '/var/run/secrets/brevo/password'
+        params.enable_tls = 'OpportunisticInsecure' -- server is smtp-relay.brevo.com but cert CN is smtp-relay-offshore-us-west1-v2.brevo.com
+      end
+      if skip_make then
+        return params
+      end
+      return kumo.make_egress_path(params)
+    end
+
+    -- Configure traffic shaping using the shaping.lua policy helper.
+    kumo.on('get_egress_path_config', get_egress_path_config)
+
+    direct_domains = {
+      'tamu.edu'
+    }
 
     -- Processing of incoming messages via SMTP
     kumo.on('smtp_server_message_received', function(msg)
@@ -82,14 +112,30 @@ data:
         end
         -- Call the queue helper to set up the queue for the message.
         queue_helper:apply(msg)
-        -- SIGNING MUST COME LAST OR YOU COULD BREAK YOUR DKIM SIGNATURES
-        dkim_signer(msg)
+        -- route everything through brevo untles it's to a direct domain
+        local direct = false
+        for _, domain in ipairs(direct_domains) do
+          if msg:to_header().domain:match(domain) then
+            direct = true
+            break
+          end
+        end
+        -- sign if direct, relay if not
+        if direct then
+          dkim_signer(msg)
+        else
+          msg:set_meta('routing_domain', 'brevomail.ieeetamu.org')
+        end
       end)
   shaping.toml: |
-    # no ipv6
+    # no ipv6 - tamu network blocks port 25
     ["default"]
-    skip_hosts = ["::/0"]
+    skip_hosts = [ "::/0" ]
     smtp_port = 587
+
+    # smtp port 25 is ok on tamu network
+    ["tamu.edu"]
+    smtp_port = 25
   listener_domains.toml: |
     # allow all clients to send mail from ieeetamu.org
     ["ieeetamu.org"]

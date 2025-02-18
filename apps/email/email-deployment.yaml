@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kumo
+spec:
+  selector:
+    matchLabels:
+      app: kumo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kumo
+    spec:
+      containers:
+        - name: kumo
+          image: ghcr.io/kumocorp/kumomta:latest
+          volumeMounts:
+            - name: kumo-policy
+              mountPath: /opt/kumomta/etc/policy
+            - name: kumo-dkim-secrets
+              mountPath: /opt/kumomta/etc/dkim/ieeetamu.org
+            - name: kumo-spool
+              mountPath: /tmp/kumo-spool
+      volumes:
+        - name: kumo-policy
+          configMap:
+            name: kumo-policy
+        - name: kumo-dkim-secrets
+          secret:
+            secretName: kumo-dkim-secrets
+        # this is primarily an outbound relay so not holding onto mail
+        # is fine... if it fails and the pod restarts, its fine to lose
+        - name: kumo-spool
+          emptyDir: {}

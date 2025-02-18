@@ -10,3 +10,4 @@ resources:
   - vaultwarden-deployment.yaml
   - vaultwarden-service.yaml
   - vaultwarden-ingressroute.yaml
+  - vaultwarden-smtp-configmap.yaml

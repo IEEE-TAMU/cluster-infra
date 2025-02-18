@@ -20,6 +20,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: vaultwarden-config
+            - configMapRef:
+                name: vaultwarden-smtp-config
             - secretRef:
                 name: vaultwarden-secrets
           env:

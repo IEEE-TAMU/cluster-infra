@@ -1,0 +1,31 @@
+# configure traefik to install the cloudflare warp plugin
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    experimental:
+      plugins:
+        cloudflarewarp:
+          moduleName: github.com/BetterCorp/cloudflarewarp
+          version: v1.3.3
+    logs:
+      general:
+        level: INFO
+    ingressRoute:
+      dashboard:
+        enabled: true
+        matchRule: Host(`traefik.ieeetamu.org`)
+        middlewares:
+          - name: traefik-auth
+        entryPoints:
+          - web
+    ports:
+      web:
+        # asDefault: true # needs v3
+        middlewares:
+          - kube-system-cloudflare-realip@kubernetescrd
+
+

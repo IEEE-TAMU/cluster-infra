@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: cloudflare-realip
+  namespace: kube-system
+spec:
+  plugin:
+    cloudflarewarp:
+      # do not use built in ips since those only count traffic from cloudflare
+      disableDefault: true
+      # since the traffic comes from the tunnel (internal) we need to trust the tunnel's ip
+      trustip:
+        - "10.42.0.0/16"

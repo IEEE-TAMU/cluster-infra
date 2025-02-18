@@ -6,3 +6,7 @@ resources:
   - shlink-database.yaml
   - shlink-user.yaml
   - shlink-grant.yaml
+  - shlink-configmap.yaml
+  - shlink-deployment.yaml
+  - shlink-service.yaml
+  - shlink-ingressroute.yaml

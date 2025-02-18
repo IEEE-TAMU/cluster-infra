@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vaultwarden
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`vault.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: vaultwarden
+          port: 80

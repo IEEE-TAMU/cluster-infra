@@ -1,0 +1,15 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: User
+metadata:
+  name: vaultwarden
+spec:
+  mariaDbRef:
+    name: mariadb
+    namespace: mariadb
+  passwordSecretKeyRef:
+    name: vaultwarden-secrets
+    key: DB_PASSWORD
+  maxUserConnections: 20
+  cleanupPolicy: Delete
+  requeueInterval: 30s
+  retryInterval: 5s

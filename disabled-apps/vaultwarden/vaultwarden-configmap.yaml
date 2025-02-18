@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vaultwarden-config
+data:
+  DB_NAME: vaultwarden
+  DB_PORT: "3306"
+  DB_HOST: mariadb.mariadb.svc.cluster.local
+  DB_USER: vaultwarden
+  # SIGNUPS_ALLOWED: "false"

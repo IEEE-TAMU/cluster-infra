@@ -1,0 +1,15 @@
+creation_rules:
+  - path_regex: k3s\.enc\.yaml$
+    encrypted_regex: ^client-key(-data)?$
+    key_groups:
+      - pgp:
+          - 483A112B3567C4F0DF8974E1D776F5702D7E83AB # caleb
+  - path_regex: secrets/.*\.yaml$
+    encrypted_regex: ^(data|stringData)$
+    key_groups:
+      - pgp:
+          - 483A112B3567C4F0DF8974E1D776F5702D7E83AB # caleb
+          - 75B5F14CB9CF5A951C935E86203E3E4D22C1B89B # cluster
+stores:
+  yaml:
+    indent: 2

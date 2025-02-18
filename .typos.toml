@@ -1,0 +1,2 @@
+[files]
+extend-exclude = ["/secrets/", "/cluster/flux-system/", ".sops.pub.asc"]

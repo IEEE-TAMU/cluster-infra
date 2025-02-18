@@ -19,5 +19,11 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.+)${{/if}}"
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["/mariadb-operator/"],
+      "groupName": "mariadb-operator"
+    }
   ]
 }

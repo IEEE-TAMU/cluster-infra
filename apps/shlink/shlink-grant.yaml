@@ -1,0 +1,17 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: Grant
+metadata:
+  name: grant
+spec:
+  mariaDbRef:
+    name: mariadb
+    namespace: mariadb
+  privileges:
+    - "ALL PRIVILEGES"
+  database: shlink
+  table: "*"
+  username: shlink
+  grantOption: true
+  cleanupPolicy: Delete
+  requeueInterval: 30s
+  retryInterval: 5s

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shlink-dashboard
+spec:
+  selector:
+    matchLabels:
+      app: shlink-dashboard
+  replicas: 1 # You could also consider elastic scaling for this deployment
+  template:
+    metadata:
+      labels:
+        app: shlink-dashboard
+    spec:
+      containers:
+        - name: shlink-dashboard
+          image: shlinkio/shlink-web-client:v4.3.0
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: dashboard-config
+            - secretRef:
+                name: dashboard-secrets

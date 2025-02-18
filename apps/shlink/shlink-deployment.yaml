@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shlink
+spec:
+  selector:
+    matchLabels:
+      app: shlink
+  replicas: 1 # You could also consider elastic scaling for this deployment
+  template:
+    metadata:
+      labels:
+        app: shlink
+    spec:
+      containers:
+        - name: shlink
+          image: shlinkio/shlink:4.4.3
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: shlink-config
+            - secretRef:
+                name: shlink-secrets

@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: shlink-dashboard
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`link-admin.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: shlink-dashboard
+          port: 8080
+      middlewares:
+        - name: shlink-dashboard-auth
+          namespace: shlink

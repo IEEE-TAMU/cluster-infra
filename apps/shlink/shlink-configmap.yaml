@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shlink-config
+data:
+  DEFAULT_DOMAIN: link.ieeetamu.org
+  IS_HTTPS_ENABLED: "true"
+  DB_DRIVER: mariadb
+  DB_NAME: shlink
+  DB_USER: shlink
+  DB_HOST: mariadb.mariadb.svc.cluster.local

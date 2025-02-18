@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dashboard-config
+data:
+  SHLINK_SERVER_URL: https://link.ieeetamu.org
+  SHLINK_SERVER_NAME: IEEE-TAMU

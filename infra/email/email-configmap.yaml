@@ -63,7 +63,10 @@ data:
     )
 
     -- Configure traffic shaping using the shaping.lua policy helper.
-    kumo.on('get_egress_path_config', shaping:setup { '/opt/kumomta/share/policy-extras/shaping.toml' })
+    kumo.on('get_egress_path_config', shaping:setup {
+      '/opt/kumomta/share/policy-extras/shaping.toml',
+      '/opt/kumomta/etc/policy/shaping.toml'
+    })
 
     -- Processing of incoming messages via SMTP
     kumo.on('smtp_server_message_received', function(msg)
@@ -82,6 +85,11 @@ data:
         -- SIGNING MUST COME LAST OR YOU COULD BREAK YOUR DKIM SIGNATURES
         dkim_signer(msg)
       end)
+  shaping.toml: |
+    # no ipv6
+    ["default"]
+    skip_hosts = ["::/0"]
+    smtp_port = 587
   listener_domains.toml: |
     # allow all clients to send mail from ieeetamu.org
     ["ieeetamu.org"]

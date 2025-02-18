@@ -6,7 +6,7 @@ resources:
   - vaultwarden-database.yaml
   - vaultwarden-user.yaml
   - vaultwarden-grant.yaml
-  # - vaultwarden-configmap.yaml
-  # - vaultwarden-deployment.yaml
-  # - vaultwarden-service.yaml
-  # - vaultwarden-ingressroute.yaml
+  - vaultwarden-configmap.yaml
+  - vaultwarden-deployment.yaml
+  - vaultwarden-service.yaml
+  - vaultwarden-ingressroute.yaml

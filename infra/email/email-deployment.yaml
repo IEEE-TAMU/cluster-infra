@@ -22,6 +22,8 @@ spec:
               mountPath: /opt/kumomta/etc/dkim/ieeetamu.org
             - name: kumo-spool
               mountPath: /tmp/kumo-spool
+          ports:
+            - containerPort: 25
       volumes:
         - name: kumo-policy
           configMap:

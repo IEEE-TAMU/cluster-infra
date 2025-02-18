@@ -5,3 +5,4 @@ resources:
   - email-namespace.yaml
   - email-deployment.yaml
   - email-configmap.yaml
+  - email-service.yaml

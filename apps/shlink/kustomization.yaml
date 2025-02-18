@@ -3,15 +3,6 @@ kind: Kustomization
 namespace: shlink
 resources:
   - shlink-namespace.yaml
-  - shlink-deployment.yaml
-  - shlink-configmap.yaml
-  - shlink-service.yaml
-  - shlink-ingressroute.yaml
-  - shlink-dashboard-deployment.yaml
-  - shlink-dashboard-configmap.yaml
-  - shlink-dashboard-service.yaml
-  - shlink-dashboard-ingressroute.yaml
-  - shlink-dashboard-basic-auth-middleware.yaml
   - shlink-database.yaml
   - shlink-user.yaml
   - shlink-grant.yaml

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kumo
-          image: ghcr.io/kumocorp/kumomta:latest
+          image: ghcr.io/kumocorp/kumomta:2025.01.23-7273d2bc
           volumeMounts:
             - name: kumo-policy
               mountPath: /opt/kumomta/etc/policy

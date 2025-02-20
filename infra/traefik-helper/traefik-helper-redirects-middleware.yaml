@@ -1,0 +1,9 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: conference-redirect
+spec:
+  redirectRegex:
+    regex: ^http://conference.ieeetamu.org/(.*) # internal traffic is only http
+    replacement: https://conference.ieee-tamu.org/$1
+    permanent: true

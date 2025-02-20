@@ -6,14 +6,16 @@ spec:
   entryPoints:
     - web
   routes:
+    - match: Host(`traefik-helper.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: traefik-helper
+          port: 80
     - match: HostRegexp(`{subdomain:.+}.ieeetamu.org`)
       priority: 1 # lowest priority catch-all
       kind: Rule
       services:
         - name: traefik-helper
           port: 80
-    - match: Host(`traefik-helper.ieeetamu.org`)
-      kind: Rule
-      services:
-        - name: traefik-helper
-          port: 80
+      middlewares:
+        - name: conference-redirect

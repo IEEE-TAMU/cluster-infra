@@ -8,3 +8,4 @@ resources:
   - traefik-helper-ingressroute.yaml
   - traefik-helper-deployment.yaml
   - traefik-helper-favicon-middleware.yaml
+  - traefik-helper-redirects-middleware.yaml

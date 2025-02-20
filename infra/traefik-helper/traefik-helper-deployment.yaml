@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik-helper
+spec:
+  selector:
+    matchLabels:
+      app: traefik-helper
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: traefik-helper
+    spec:
+      containers:
+        - name: traefik-helper
+          image: nginx:1.27.4
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: index-html
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: index-html
+          configMap:
+            name: traefik-helper-config

@@ -11,3 +11,6 @@ spec:
       services:
         - name: hello
           port: 8000
+      middlewares: # apply the favicon since the container doesnt have one
+        - name: traefik-helper-favicon
+          namespace: traefik-helper

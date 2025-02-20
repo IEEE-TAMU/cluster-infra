@@ -1,0 +1,19 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-helper
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: HostRegexp(`{subdomain:.+}.ieeetamu.org`)
+      priority: 1 # lowest priority catch-all
+      kind: Rule
+      services:
+        - name: traefik-helper
+          port: 80
+    - match: Host(`traefik-helper.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: traefik-helper
+          port: 80

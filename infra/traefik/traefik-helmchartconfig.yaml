@@ -26,3 +26,6 @@ spec:
         # asDefault: true # needs v3
         middlewares:
           - kube-system-cloudflare-realip@kubernetescrd
+    providers:
+      kubernetesCRD:
+        allowCrossNamespace: true

@@ -1,0 +1,9 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-helper-favicon
+spec:
+  redirectRegex:
+    regex: ^.+.ieeetamu.org/favicon.ico$
+    replacement: https://traefik-helper.ieeetamu.org/favicon.ico
+    permanent: true

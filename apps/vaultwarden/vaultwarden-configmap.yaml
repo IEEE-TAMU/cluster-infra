@@ -8,4 +8,4 @@ data:
   DB_PORT: "3306"
   DB_HOST: mariadb.mariadb.svc.cluster.local
   DB_USER: vaultwarden
-  # SIGNUPS_ALLOWED: "false"
+  SIGNUPS_ALLOWED: "false"

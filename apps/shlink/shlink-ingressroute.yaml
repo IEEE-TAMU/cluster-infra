@@ -11,3 +11,6 @@ spec:
       services:
         - name: shlink
           port: 8080
+      middlewares:
+        - name: traefik-helper-touchicon
+          namespace: traefik-helper

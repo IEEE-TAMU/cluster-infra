@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portal-config
+data:
+  PHX_HOST: portal.ieeetamu.org
+  PORT: "4000"
+  MAIL_HOST: email.email.svc.cluster.local
+  MAIL_PORT: "25"
+  DB_NAME: portal
+  DB_USER: portal
+  DB_HOST: mariadb.mariadb.svc.cluster.local

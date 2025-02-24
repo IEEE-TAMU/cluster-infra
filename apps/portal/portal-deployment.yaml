@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal
+spec:
+  selector:
+    matchLabels:
+      app: portal
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      containers:
+        - name: portal
+          image: ghcr.io/ieee-tamu/portal:0.0.1
+          ports:
+            - containerPort: 4000
+          envFrom:
+            - configMapRef:
+                name: portal-config
+            - secretRef:
+                name: portal-secrets
+          env:
+            - name: DATABASE_URL
+              value: ecto://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST)/$(DB_NAME)

@@ -6,3 +6,7 @@ resources:
   - portal-database.yaml
   - portal-user.yaml
   - portal-grant.yaml
+  - portal-configmap.yaml
+  - portal-deployment.yaml
+  - portal-service.yaml
+  - portal-ingressroute.yaml

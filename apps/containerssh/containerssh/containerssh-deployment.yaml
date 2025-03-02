@@ -19,7 +19,7 @@ spec:
       containers:
         # Run ContainerSSH
         - name: containerssh
-          image: containerssh/containerssh:0.4
+          image: containerssh/containerssh:v0.5
           securityContext:
             # Read only container
             readOnlyRootFilesystem: true

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: containerssh
+  labels:
+    app: containerssh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: containerssh
+  template:
+    metadata:
+      labels:
+        app: containerssh
+    spec:
+      # We are using the containerssh service account
+      serviceAccountName: containerssh
+      containers:
+        # Run ContainerSSH
+        - name: containerssh
+          image: containerssh/containerssh:0.4
+          securityContext:
+            # Read only container
+            readOnlyRootFilesystem: true
+          ports:
+            - containerPort: 2222
+          volumeMounts:
+            # Mount the host keys
+            - name: hostkey
+              mountPath: /etc/containerssh/ssh_host_rsa_key
+              subPath: ssh_host_rsa_key
+              readOnly: true
+            - name: hostkey
+              mountPath: /etc/containerssh/ssh_host_ed25519_key
+              subPath: ssh_host_ed25519_key
+              readOnly: true
+              # Mount the config file
+            - name: config
+              mountPath: /etc/containerssh/config.yaml
+              subPath: config.yaml
+              readOnly: true
+        # Run the auth-config test server for authentication
+        - name: containerssh-authconfig
+          image: containerssh/containerssh-test-authconfig:0.4
+          securityContext:
+            readOnlyRootFilesystem: true
+      # Don't allow containers running as root (ContainerSSH doesn't need it)
+      securityContext:
+        runAsNonRoot: true
+      volumes:
+        - name: hostkey
+          secret:
+            secretName: containerssh-hostkey
+        - name: config
+          configMap:
+            name: containerssh-config

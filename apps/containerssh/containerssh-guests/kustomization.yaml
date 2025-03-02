@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: containerssh-guests
+resources:
+  - containerssh-guests-namespace.yaml
+  - containerssh-guests-role.yaml
+  - containerssh-guests-rolebinding.yaml
+  - containerssh-guests-service.yaml
+  - containerssh-guests-headlessservice.yaml
+  - containerssh-guests-ingressroute.yaml
+  - containerssh-guests-webserver-configmap.yaml
+  - containerssh-guests-webserver-deployment.yaml
+  - containerssh-guests-webserver-service.yaml
+  - containerssh-guests-webserver-ingressroute.yaml

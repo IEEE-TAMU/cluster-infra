@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: webserver-proxy
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: HostRegexp(`containerssh-{uuid:[a-z0-9]+}.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: webserver-proxy
+          port: 80

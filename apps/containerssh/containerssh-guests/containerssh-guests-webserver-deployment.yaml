@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver-proxy
+spec:
+  selector:
+    matchLabels:
+      app: webserver-proxy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webserver-proxy
+    spec:
+      containers:
+        - name: proxy
+          image: nginx
+          ports:
+            - containerPort: 80
+          # set up nginx.conf from the configmap
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: proxy-config

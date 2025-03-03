@@ -28,7 +28,8 @@ data:
           subdomain: containerssh-guests
           containers:
             - name: shell
-              image: containerssh/containerssh-guest-image
+              image: ghcr.io/ieee-tamu/containerssh-guest-image:latest
+              imagePullPolicy: Always
               ## Further options to lock down the execution.
               ## See https://containerssh.io/reference/kubernetes/ for more options
               # securityContext:

@@ -11,3 +11,6 @@ spec:
       services:
         - name: containerssh-guests
           port: 80
+      middlewares: # apply the favicon since the container doesnt have one
+        - name: traefik-helper-favicon
+          namespace: traefik-helper

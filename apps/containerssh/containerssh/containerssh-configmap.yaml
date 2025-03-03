@@ -55,8 +55,20 @@ data:
               volumeMounts:
                 - name: html
                   mountPath: /usr/share/nginx/html
+          initContainers:
+            - name: init
+              image: busybox
+              command: ["sh", "-c", "cp /index/index.html /html/index.html"]
+              volumeMounts:
+                - name: html
+                  mountPath: /html
+                - name: index
+                  mountPath: /index
           volumes:
             - name: html
               emptyDir:
                 sizeLimit: 1Mi
                 medium: Memory
+            - name: index
+              configMap:
+                name: guest-config

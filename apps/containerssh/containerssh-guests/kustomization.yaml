@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: containerssh-guests
 resources:
   - containerssh-guests-namespace.yaml
+  - containerssh-guests-configmap.yaml
   - containerssh-guests-role.yaml
   - containerssh-guests-rolebinding.yaml
   - containerssh-guests-service.yaml

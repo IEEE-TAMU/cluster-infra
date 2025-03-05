@@ -9,4 +9,4 @@ data:
   MAIL_PORT: "25"
   DB_NAME: portal
   DB_USER: portal
-  DB_HOST: mariadb.mariadb.svc.cluster.local
+  DB_HOST: mariadb-internal.mariadb.svc

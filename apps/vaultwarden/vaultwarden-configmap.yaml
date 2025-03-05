@@ -6,6 +6,6 @@ data:
   DOMAIN: https://vault.ieeetamu.org
   DB_NAME: vaultwarden
   DB_PORT: "3306"
-  DB_HOST: mariadb.mariadb.svc.cluster.local
+  DB_HOST: mariadb-internal.mariadb.svc
   DB_USER: vaultwarden
   SIGNUPS_ALLOWED: "false"

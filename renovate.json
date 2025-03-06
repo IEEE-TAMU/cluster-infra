@@ -24,6 +24,10 @@
     {
       "matchPackageNames": ["/mariadb-operator/"],
       "groupName": "mariadb-operator"
+    },
+    {
+      "matchPackageNames": ["/containerssh/"],
+      "groupName": "containerssh"
     }
   ]
 }

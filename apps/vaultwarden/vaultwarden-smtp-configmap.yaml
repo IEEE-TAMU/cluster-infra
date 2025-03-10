@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: vaultwarden-smtp-config
 data:
-  SMTP_HOST: email.email.svc.cluster.local
+  SMTP_HOST: email.email.svc.
   SMTP_FROM: vault@ieeetamu.org
   SMTP_PORT: "25"
   SMTP_SECURITY: off

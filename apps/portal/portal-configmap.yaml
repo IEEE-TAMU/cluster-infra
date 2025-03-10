@@ -5,7 +5,7 @@ metadata:
 data:
   PHX_HOST: portal.ieeetamu.org
   PORT: "4000"
-  MAIL_HOST: email.email.svc.cluster.local
+  MAIL_HOST: email.email.svc.
   MAIL_PORT: "25"
   DB_NAME: portal
   DB_USER: portal

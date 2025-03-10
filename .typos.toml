@@ -1,2 +1,2 @@
 [files]
-extend-exclude = ["/secrets/", "/cluster/flux-system/", ".sops.pub.asc"]
+extend-exclude = ["/disabled-secrets/", "/secrets/", "/cluster/flux-system/", ".sops.pub.asc"]

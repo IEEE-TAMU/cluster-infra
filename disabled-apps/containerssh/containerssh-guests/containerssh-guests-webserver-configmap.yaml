@@ -39,7 +39,7 @@ data:
             # Set the subdomain from the Host header
             location / {
                 # Proxy the request to the backend service corresponding to the subdomain
-                proxy_pass http://$containerssh_node.containerssh-guests-headless.containerssh-guests.svc.;
+                proxy_pass http://$containerssh_node.containerssh-guests-headless.containerssh-guests.svc.cluster.local;
 
                 # Pass headers along to the backend
                 proxy_set_header Host $host;
@@ -47,7 +47,7 @@ data:
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_set_header X-Forwarded-Proto $scheme;
 
-                resolver kube-dns.kube-system.svc. valid=10s;
+                resolver kube-dns.kube-system.svc.cluster.local valid=10s;
             }
         }
 

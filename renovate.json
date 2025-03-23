@@ -29,5 +29,8 @@
       "matchPackageNames": ["/containerssh/"],
       "groupName": "containerssh"
     }
+  ],
+  "assignees": [
+    "gigamonster256"
   ]
 }

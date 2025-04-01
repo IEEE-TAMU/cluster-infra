@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: discord
-          image: ghcr.io/ieee-tamu/discord-bot:0.0.1
+          image: ghcr.io/ieee-tamu/discord-bot:0.0.2
           envFrom:
             - configMapRef:
                 name: discord-config

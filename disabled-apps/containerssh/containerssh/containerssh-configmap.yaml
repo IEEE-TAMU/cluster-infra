@@ -5,7 +5,7 @@ metadata:
 data:
   config.yaml: |-
     ssh:
-      banner: "Welcome to IEEE-TAMU's ContainerSSH\n"
+      banner: "Welcome to IEEE TAMU's ContainerSSH\n"
       hostkeys:
         - /etc/containerssh/ssh_host_rsa_key
         - /etc/containerssh/ssh_host_ed25519_key

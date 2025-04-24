@@ -12,9 +12,9 @@ spec:
   compression: gzip
   storage:
     s3:
-      bucket: ieee-tamu-mariadb-backups
-      # Caleb's cf account
-      endpoint: 7fb33e1cd9a82644ca4c6e019b8ad6af.r2.cloudflarestorage.com
+      bucket: mariadb-backups
+      # webmaster@ieeetamu.org cf account
+      endpoint: 0e6d466dd96fb5b35ed0748ee280321f.r2.cloudflarestorage.com
       accessKeyIdSecretKeyRef:
         name: s3-secrets
         key: access-key-id

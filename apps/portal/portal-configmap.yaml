@@ -10,5 +10,5 @@ data:
   DB_NAME: portal
   DB_USER: portal
   DB_HOST: mariadb-internal.mariadb.svc
-  R2_BUCKET: ieee-tamu-portal
-  CF_ACCOUNT_ID: 7fb33e1cd9a82644ca4c6e019b8ad6af
+  R2_BUCKET: portal
+  CF_ACCOUNT_ID: 0e6d466dd96fb5b35ed0748ee280321f

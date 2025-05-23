@@ -4,14 +4,20 @@
     "config:recommended"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "ignorePaths": ["secrets/**"],
+  "ignorePaths": [
+    "secrets/**"
+  ],
   "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
+    "managerFilePatterns": [
+      "/\\.yaml$/"
+    ]
   },
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["\\.yaml$"],
+      "managerFilePatterns": [
+        "/\\.yaml$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[^:]+?) depName=(?<depName>.+?)( versioning=(?<versioning>.+?))?( extractVersion=(?<extractVersion>.+?))?( registryUrl=(?<ocimatch>oci:\\/\\/)?(?<registryUrl>.+?))?\\s.+?[:=]\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
       ],
@@ -22,11 +28,15 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["/mariadb-operator/"],
+      "matchPackageNames": [
+        "/mariadb-operator/"
+      ],
       "groupName": "mariadb-operator"
     },
     {
-      "matchPackageNames": ["/containerssh/"],
+      "matchPackageNames": [
+        "/containerssh/"
+      ],
       "groupName": "containerssh"
     }
   ],

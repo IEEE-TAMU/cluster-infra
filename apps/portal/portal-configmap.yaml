@@ -12,3 +12,4 @@ data:
   DB_HOST: mariadb-internal.mariadb.svc
   R2_BUCKET: portal
   CF_ACCOUNT_ID: 0e6d466dd96fb5b35ed0748ee280321f
+  DISCORD_BOT_URL: http://discord.discord.svc.cluster.local

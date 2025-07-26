@@ -4,3 +4,6 @@ metadata:
   name: discord-config
 data:
   MONITOR_CHANNEL_ID: "1344375037716856893"
+  API_PORT: "3000"
+  GUILD_ID: "1361409163523129584"
+  

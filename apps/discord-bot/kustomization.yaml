@@ -5,3 +5,4 @@ resources:
   - discord-namespace.yaml
   - discord-configmap.yaml
   - discord-deployment.yaml
+  - discord-service.yaml

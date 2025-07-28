@@ -1,4 +1,5 @@
 apiVersion: k8s.mariadb.com/v1alpha1
+# TODO: investigate migrating to PhysicalBackup
 kind: Backup
 metadata:
   name: cf-s3-backup

@@ -6,4 +6,4 @@ data:
   MONITOR_CHANNEL_ID: "1344375037716856893"
   API_PORT: "3000"
   GUILD_ID: "1361409163523129584"
-  
+  CALENDAR_ICS_URL: https://calendar.google.com/calendar/ical/ieeetamu.officers%40gmail.com/public/basic.ics

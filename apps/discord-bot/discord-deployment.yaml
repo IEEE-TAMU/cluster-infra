@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: discord
-          image: ghcr.io/ieee-tamu/discord-bot:0.0.3
+          image: ghcr.io/ieee-tamu/discord-bot:0.1.0
           ports:
             - containerPort: 3000
           envFrom:

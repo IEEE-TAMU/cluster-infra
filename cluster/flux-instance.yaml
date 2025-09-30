@@ -42,5 +42,5 @@ spec:
   sync:
     kind: GitRepository
     url: "https://github.com/ieee-tamu/cluster-infra.git"
-    ref: "refs/heads/main"
+    ref: "refs/heads/master"
     path: "cluster"

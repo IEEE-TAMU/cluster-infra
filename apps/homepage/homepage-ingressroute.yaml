@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: homepage
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`homepage.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: homepage
+          port: 3000

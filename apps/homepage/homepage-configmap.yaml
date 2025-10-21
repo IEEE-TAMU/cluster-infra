@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+data:
+  PORT: "3000"
+  SMTP_PORT: "25"
+  SMTP_HOST: email.email.svc.cluster.local
+  SMTP_USER: homepage@ieeetamu.org

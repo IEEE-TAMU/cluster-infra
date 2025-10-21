@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+spec:
+  selector:
+    matchLabels:
+      app: homepage
+  replicas: 2 # You could also consider elastic scaling for this deployment
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      containers:
+        - name: homepage
+          image: ghcr.io/ieee-tamu/homepage:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: homepage-config

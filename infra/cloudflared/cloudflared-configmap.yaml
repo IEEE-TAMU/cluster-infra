@@ -25,6 +25,9 @@ data:
     # in the connection from cloudflared to your local service, not from the internet to cloudflared.
     # - hostname: dev.ieeetamu.org
     #   service: hello_world
+    # homepage domain (through traefik)
+    - hostname: 'ieeetamu.org'
+      service: http://traefik.kube-system.svc.cluster.local:80
     # send anything on *.ieeetamu.org to traefik
     - hostname: '*.ieeetamu.org'
       service: http://traefik.kube-system.svc.cluster.local:80

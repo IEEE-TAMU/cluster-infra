@@ -1,4 +1,5 @@
 apiVersion: k8s.mariadb.com/v1alpha1
+# TODO: investigate migrating to PhysicalBackup
 kind: Backup
 metadata:
   name: cf-s3-backup
@@ -7,7 +8,7 @@ spec:
     name: mariadb
   schedule:
     cron: "9 */6 * * *"
-    suspend: true
+    suspend: false
   maxRetention: 720h # 30 days
   compression: gzip
   storage:

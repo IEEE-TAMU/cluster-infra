@@ -9,8 +9,7 @@ spec:
     # physical backups every 12 hours
     # physical backups are much larger than logical for small DBs (like ours)
     cron: "42 */12 * * *"
-    suspend: false
-    immediate: true
+    suspend: true
   maxRetention: 720h # 30 days
   compression: bzip2
   storage:

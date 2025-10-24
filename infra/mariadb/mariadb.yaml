@@ -19,7 +19,8 @@ spec:
     max_allowed_packet=256M
   bootstrapFrom:
     backupRef:
-      name: cf-s3-backup
+      name: cf-s3-physicalbackup
+      kind: PhysicalBackup
   resources:
     requests:
       cpu: 100m
@@ -36,3 +37,10 @@ spec:
     failureThreshold: 10
     periodSeconds: 5
     timeoutSeconds: 5
+  replicas: 3
+  replication:
+    enabled: true
+    replica:
+      bootstrapFrom:
+        physicalBackupTemplateRef:
+          name: cf-s3-physicalbackup

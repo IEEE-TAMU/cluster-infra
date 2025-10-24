@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: mariadb
 resources:
   - mariadb-backup-cf.yaml
+  - mariadb-physicalbackup-cf.yaml
   - mariadb-namespace.yaml
   - mariadb.yaml

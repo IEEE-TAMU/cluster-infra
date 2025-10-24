@@ -1,15 +1,18 @@
 apiVersion: k8s.mariadb.com/v1alpha1
-kind: Backup
+kind: PhysicalBackup
 metadata:
-  name: cf-s3-backup
+  name: cf-s3-physicalbackup
 spec:
   mariaDbRef:
     name: mariadb
   schedule:
-    cron: "9 */6 * * *"
-    suspend: true
+    # physical backups every 12 hours
+    # physical backups are much larger than logical for small DBs (like ours)
+    cron: "42 */12 * * *"
+    suspend: false
+    immediate: true
   maxRetention: 720h # 30 days
-  compression: gzip
+  compression: bzip2
   storage:
     s3:
       bucket: mariadb-backups
@@ -23,16 +26,3 @@ spec:
         key: secret-access-key
       tls:
         enabled: true
-  args:
-    - --single-transaction
-    - --all-databases
-    - --verbose
-  resources:
-    requests:
-      cpu: 100m
-      memory: 128Mi
-    limits:
-      cpu: 300m
-      memory: 512Mi
-  affinity:
-    antiAffinityEnabled: true

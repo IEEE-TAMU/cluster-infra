@@ -28,8 +28,6 @@ data:
     # homepage domain (through traefik)
     - hostname: 'ieeetamu.org'
       service: http://traefik.kube-system.svc.cluster.local:80
-    - hostname: 'esp.ieeetamu.org'
-      service: http://10.245.241.111
     # send anything on *.ieeetamu.org to traefik
     - hostname: '*.ieeetamu.org'
       service: http://traefik.kube-system.svc.cluster.local:80

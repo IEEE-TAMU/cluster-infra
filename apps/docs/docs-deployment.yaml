@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docs
+spec:
+  selector:
+    matchLabels:
+      app: docs
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: docs
+    spec:
+      containers:
+        - name: docs
+          image: ghcr.io/ieee-tamu/docs:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

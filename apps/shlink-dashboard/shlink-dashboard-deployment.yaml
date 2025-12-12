@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: shlink-dashboard
-          image: shlinkio/shlink-web-client:4.6.1
+          image: shlinkio/shlink-web-client:4.6.2
           ports:
             - containerPort: 8080
           envFrom:

@@ -3,8 +3,6 @@ kind: IngressRoute
 metadata:
   name: vaultwarden
 spec:
-  entryPoints:
-    - web
   routes:
     - match: Host(`vault.ieeetamu.org`)
       kind: Rule

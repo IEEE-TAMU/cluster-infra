@@ -3,8 +3,6 @@ kind: IngressRoute
 metadata:
   name: shlink-dashboard
 spec:
-  entryPoints:
-    - web
   routes:
     - match: Host(`link-admin.ieeetamu.org`)
       kind: Rule

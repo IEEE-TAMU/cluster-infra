@@ -3,8 +3,6 @@ kind: IngressRoute
 metadata:
   name: docs
 spec:
-  entryPoints:
-    - web
   routes:
     - match: Host(`docs.ieeetamu.org`)
       kind: Rule

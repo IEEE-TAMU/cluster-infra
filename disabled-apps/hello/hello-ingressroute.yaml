@@ -3,8 +3,6 @@ kind: IngressRoute
 metadata:
   name: hello
 spec:
-  entryPoints:
-    - web
   routes:
     - match: Host(`hello.ieeetamu.org`)
       kind: Rule

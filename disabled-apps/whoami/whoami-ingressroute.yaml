@@ -3,8 +3,6 @@ kind: IngressRoute
 metadata:
   name: whoami
 spec:
-  entryPoints:
-    - web
   routes:
     - match: Host(`whoami.ieeetamu.org`)
       kind: Rule

@@ -24,7 +24,6 @@ data:
       <h2 id='service'></h2>
       <p id='message'>Oops, the page you are looking for doesn't exist</p>
       <p id='visit'>Try visiting the official <a href="https://ieeetamu.org">IEEE TAMU page</a> to find what you're looking for.</p>
-      <p id='conference'>Looking for the conference? Visit <a href="https://conference.ieee-tamu.org">here</a>.</p>
     </body>
     <script>
       var subdomain = window.location.host.split('.')[0]

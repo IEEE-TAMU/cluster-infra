@@ -17,5 +17,5 @@ spec:
       services:
         - name: traefik-helper
           port: 80
-      middlewares:
-        - name: conference-redirect
+      # middlewares:
+      #   - name: conference-redirect

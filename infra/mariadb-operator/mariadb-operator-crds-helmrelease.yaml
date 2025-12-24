@@ -10,5 +10,5 @@ spec:
         kind: HelmRepository
         name: mariadb-operator
       # renovate: datasource=helm depName=mariadb-operator-crds registryUrl=https://helm.mariadb.com/mariadb-operator
-      version: "25.10.2"
+      version: "25.10.3"
   interval: 1h0m0s

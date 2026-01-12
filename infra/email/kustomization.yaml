@@ -7,3 +7,4 @@ resources:
   - email-configmap.yaml
   - email-service.yaml
   - email-podmonitor.yaml
+  - email-grafana-dashboard.yaml

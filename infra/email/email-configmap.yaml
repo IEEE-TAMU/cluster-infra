@@ -51,6 +51,13 @@ data:
         -- this option is discussed in more detail below
         max_segment_duration = '10 seconds',
       }
+
+      -- start http metrics server on port 8000
+      kumo.start_http_listener {
+        listen = '0.0.0.0:8000',
+        -- FIXME: hmm, this allows all k3s pods to access metrics but also allows them the other endpoints
+        trusted_hosts = { '127.0.0.1', '::1', '10.42.0.0/16' },
+      }
     end)
 
     -- Configure listener domains for relay, oob bounces, and FBLs using the

@@ -5,3 +5,4 @@ resources:
   - cloudflared-namespace.yaml
   - cloudflared-deployment.yaml
   - cloudflared-configmap.yaml
+  - cloudflared-podmonitor.yaml

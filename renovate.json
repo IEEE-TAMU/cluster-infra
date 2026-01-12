@@ -35,6 +35,13 @@
     },
     {
       "matchPackageNames": [
+        "/prometheus-operator-crds/",
+        "/kube-prometheus-stack/"
+      ],
+      "groupName": "prometheus-stack"
+    },
+    {
+      "matchPackageNames": [
         "/containerssh/"
       ],
       "groupName": "containerssh"

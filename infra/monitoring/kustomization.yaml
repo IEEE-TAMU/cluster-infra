@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monitoring
+resources:
+  - monitoring-namespace.yaml
+  - prometheus-community-helmrepository.yaml
+  - kube-prometheus-stack-helmrelease.yaml
+  - prometheus-operator-crds-helmrelease.yaml
+  - prometheus-auth-middleware.yaml
+  - prometheus-ingressroute.yaml
+  - grafana-ingressroute.yaml

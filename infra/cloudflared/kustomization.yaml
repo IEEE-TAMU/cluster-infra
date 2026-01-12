@@ -6,3 +6,4 @@ resources:
   - cloudflared-deployment.yaml
   - cloudflared-configmap.yaml
   - cloudflared-podmonitor.yaml
+  - cloudflared-grafana-dashboard.yaml

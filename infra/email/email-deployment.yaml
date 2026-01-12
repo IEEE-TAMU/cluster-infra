@@ -25,7 +25,11 @@ spec:
             - name: kumo-spool
               mountPath: /tmp/kumo-spool
           ports:
-            - containerPort: 25
+            - name: smtp
+              containerPort: 25
+            - name: metrics
+              containerPort: 8000
+          
       volumes:
         - name: kumo-policy
           configMap:

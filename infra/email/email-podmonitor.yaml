@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: email
+  labels:
+    app.kubernetes.io/component: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: kumo
+  namespaceSelector:
+    matchNames:
+      - email
+  podMetricsEndpoints:
+    - port: metrics
+      scheme: http
+      path: /metrics

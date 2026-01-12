@@ -6,3 +6,4 @@ resources:
   - email-deployment.yaml
   - email-configmap.yaml
   - email-service.yaml
+  - email-podmonitor.yaml

@@ -9,7 +9,7 @@ data:
   MAIL_PORT: "25"
   DB_NAME: portal
   DB_USER: portal
-  DB_HOST: mariadb-internal.mariadb.svc
+  DB_HOST: mariadb-primary.mariadb.svc
   R2_BUCKET: portal
   CF_ACCOUNT_ID: 0e6d466dd96fb5b35ed0748ee280321f
   DISCORD_CLIENT_ID: "1397986260823576586"

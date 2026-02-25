@@ -7,6 +7,7 @@ spec:
     name: mariadb
     key: password
     generate: false
+  replicas: 3
   storage:
     size: 1Gi
   myCnf: |
@@ -17,9 +18,17 @@ spec:
     innodb_autoinc_lock_mode=2
     innodb_buffer_pool_size=1024M
     max_allowed_packet=256M
+  replication:
+    enabled: true
   bootstrapFrom:
     backupRef:
       name: cf-s3-backup
+  affinity:
+    antiAffinityEnabled: true
+  metrics:
+    exporter:
+      affinity:
+        antiAffinityEnabled: true
   resources:
     requests:
       cpu: 100m

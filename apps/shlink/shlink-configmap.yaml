@@ -8,7 +8,7 @@ data:
   DB_DRIVER: mariadb
   DB_NAME: shlink
   DB_USER: shlink
-  DB_HOST: mariadb-internal.mariadb.svc
+  DB_HOST: mariadb-primary.mariadb.svc
   # IEEE TAMU logo in center
   DEFAULT_QR_CODE_LOGO_URL: https://traefik-helper.ieeetamu.org/web-app-manifest-512x512.png
   # Medium error correction to help with logo in the middle

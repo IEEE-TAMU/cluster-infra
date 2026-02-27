@@ -5,3 +5,5 @@ resources:
   - traefik-basic-auth-middleware.yaml
   - traefik-realip-middleware.yaml
   - traefik-helmchartconfig.yaml
+  - traefik-podmonitor.yaml
+  - traefik-grafana-dashboard.yaml

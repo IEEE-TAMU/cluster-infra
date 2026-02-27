@@ -1,3 +1,7 @@
+# NOTE: this middleware has had issues where if traefik cannot contact the plugins registry
+# traefik will error out about not being able to find the plugin. Consider vendoring the plugin
+# (keeping a local copy of https://github.com/BetterCorp/cloudflarewarp) if this becomes an issue.
+# for now, we can just restart the traefik pod as needed to get the plugin working again.
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:

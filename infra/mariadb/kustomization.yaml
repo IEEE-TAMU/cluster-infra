@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: mariadb
 resources:
   - mariadb-backup-cf.yaml
+  - mariadb-grafana-dashboard.yaml
   # used a ton of space and when trying to enable replication,
   # things were not working (DBs would come up but then replication would timeout)
   # and controller would show as Role: "Unknown" for all pods.

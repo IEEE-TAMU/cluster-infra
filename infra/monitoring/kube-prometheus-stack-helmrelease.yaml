@@ -26,3 +26,7 @@ spec:
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/component: monitoring
+        serviceMonitorNamespaceSelector: {}
+        serviceMonitorSelector:
+          matchLabels:
+            app.kubernetes.io/component: monitoring

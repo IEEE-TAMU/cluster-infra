@@ -27,8 +27,6 @@ spec:
     antiAffinityEnabled: true
   metrics:
     enabled: true
-    serviceMonitor:
-      prometheusRelease: kube-prometheus-stack
   resources:
     requests:
       cpu: 100m

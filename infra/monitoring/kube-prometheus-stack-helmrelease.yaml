@@ -22,11 +22,3 @@ spec:
           requests:
             cpu: 200m
             memory: 200Mi
-        podMonitorNamespaceSelector: {}
-        podMonitorSelector:
-          matchLabels:
-            app.kubernetes.io/component: monitoring
-        serviceMonitorNamespaceSelector: {}
-        serviceMonitorSelector:
-          matchLabels:
-            app.kubernetes.io/component: monitoring

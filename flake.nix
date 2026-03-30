@@ -29,7 +29,7 @@
           ...
         }:
         {
-          formatter = pkgs.alejandra;
+          formatter = pkgs.nixfmt-tree;
 
           pre-commit.settings.hooks = {
             yamlfmt.enable = true;

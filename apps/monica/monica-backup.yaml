@@ -1,0 +1,26 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+# physicalBackup is much larger for small databases
+kind: Backup
+metadata:
+  name: monica-s3-backup
+spec:
+  mariaDbRef:
+    name: monica-db
+  schedule:
+    cron: "42 */12 * * *"
+    suspend: false
+  maxRetention: 720h # 30 days
+  compression: bzip2
+  storage:
+    s3:
+      bucket: mariadb-backups
+      prefix: monica
+      endpoint: 0e6d466dd96fb5b35ed0748ee280321f.r2.cloudflarestorage.com
+      accessKeyIdSecretKeyRef:
+        name: s3-secrets
+        key: access-key-id
+      secretAccessKeySecretKeyRef:
+        name: s3-secrets
+        key: secret-access-key
+      tls:
+        enabled: true

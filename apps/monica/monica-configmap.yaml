@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monica-app-config
+data:
+  APP_NAME: Monica
+  APP_ENV: production
+  # APP_KEY from secrets
+  APP_DEBUG: "false"
+  APP_URL: https://monica.ieeetamu.org
+  APP_DISABLE_SIGNUP: "false"
+  DB_CONNECTION: mysql
+  DB_HOST: monica-db-primary.monica.svc
+  DB_PORT: "3306"
+  DB_DATABASE: monica
+  DB_USERNAME: monica
+  # DB_PASSWORD from secrets
+  CACHE_STORE: database
+  QUEUE_CONNECTION: sync
+  SESSION_DRIVER: database
+  LOG_CHANNEL: stack
+  FULL_TEXT_INDEX: "true"
+  MAIL_MAILER: smtp
+  MAIL_HOST: email.email.svc
+  MAIL_PORT: "25"
+  # internal email has self signed cert
+  MAIL_ENCRYPTION: "null"
+  MAIL_VERIFY_PEER: "false"

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monica
+spec:
+  selector:
+    matchLabels:
+      app: monica
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: monica
+    spec:
+      containers:
+        - name: monica
+          image: monica:4.1.2-apache
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: storage
+              mountPath: /var/www/html/storage
+          envFrom:
+            - configMapRef:
+                name: monica-app-config
+            - configMapRef:
+                name: monica-smtp-config
+            - secretRef:
+                name: monica-secrets
+      volumes:
+        # not sure if this needs to be a PVC?
+        - name: storage
+          emptyDir: {}

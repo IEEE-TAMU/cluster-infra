@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monica-smtp-config
+data:
+  MAIL_FROM_ADDRESS: monica@ieeetamu.org
+  MAIL_FROM_NAME: IEEE TAMU Monica
+  # MAIL_REPLY_TO_ADDRESS: monica@ieeetamu.org
+  # MAIL_REPLY_TO_NAME: IEEE TAMU Monica

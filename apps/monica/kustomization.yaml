@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monica
+resources:
+  - monica-namespace.yaml
+  - monica-mariadb.yaml
+  - monica-backup.yaml
+  - monica-database.yaml
+  - monica-user.yaml
+  - monica-grant.yaml
+  - monica-configmap.yaml
+  - monica-deployment.yaml
+  - monica-service.yaml
+  - monica-ingressroute.yaml
+  - monica-smtp-configmap.yaml

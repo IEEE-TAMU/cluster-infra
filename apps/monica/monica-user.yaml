@@ -1,0 +1,14 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: User
+metadata:
+  name: monica
+spec:
+  mariaDbRef:
+    name: monica-db
+  passwordSecretKeyRef:
+    name: monica-secrets
+    key: DB_PASSWORD
+  maxUserConnections: 20
+  cleanupPolicy: Delete
+  requeueInterval: 30s
+  retryInterval: 5s

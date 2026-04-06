@@ -1,0 +1,11 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: monica
+spec:
+  routes:
+    - match: Host(`monica.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: monica
+          port: 80

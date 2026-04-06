@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monica-oauth-public
+data:
+  oauth-public.key: |
+    -----BEGIN PUBLIC KEY-----
+    MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArI1M/3yJ5WtJlLL10xm0
+    PldQVOaxOZKnkAbfUMvfMftkmnr/33SjNYc3tFtB7cuNri4pM3vvsqrYqZmai1xa
+    CYjEW8OabLgJYceRfp0Io6Evk2enElmOyqmiMsG98Mipsw2u1+Q2U5ijSLjwqF8V
+    2XtHSfVIvu5MU9ecl2Z2lrme+UyA6LfO/xBy8ah59cWvtqADmcJlWyGnf+7Bf3UZ
+    E85e0d+4N13k350O2Uq9Gi0GcCTqmiIpSUVElUqmOT+JAq+pSZK+tGlehwG5jwhI
+    LYqddyf3VFMZ32Uve+NLKyhlQa3B5OTMnt1mfmXHKUiaj7x2pywpPy4vv3hr74yK
+    XiJIPVIggj+OFeiaI+u4FXzVAqWtYr0Eg6GlqVT94J0kWqrc/sMTtOchGJ6cdPe4
+    iYQez03UMU3Uusj/Wc0/qScqIe+mGTI3gczCq9CF2SMUGFmKUR+ltRA1DxR0thY+
+    EUtSDx+i2OY4p5uGHJQby8IoeX07GbOPsfAw7NNyPV7sldLMH4C8HUkNsUrQJIC/
+    0HRb9fCZ2+r1B6ZeihnzJ+kV0IP3VU1RuGLjhw26IR0Day+fqLtcjZIup3K0GRsj
+    enV4J0eNBPyxC1iBe2kSdXkqMyBE1V8DSRTUWiebQ7IRqL4LCg6FuwYGLDl9fJQP
+    HmUDBoOFs0b2zyH91CjyfXcCAwEAAQ==
+    -----END PUBLIC KEY-----

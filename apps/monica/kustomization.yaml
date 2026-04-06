@@ -13,3 +13,4 @@ resources:
   - monica-service.yaml
   - monica-ingressroute.yaml
   - monica-smtp-configmap.yaml
+  - monica-oauth-configmap.yaml

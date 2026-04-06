@@ -12,6 +12,24 @@ spec:
       labels:
         app: monica
     spec:
+      initContainers:
+        - name: init-permissions
+          image: monica:4.1.2-apache
+          command: ["sh", "-c"]
+          args:
+            - |
+              cp /oauth-public.key /var/www/html/storage/oauth-public.key
+              cp /oauth-private.key /var/www/html/storage/oauth-private.key
+              chown -R www-data:www-data /var/www/html/storage
+          volumeMounts:
+            - name: storage
+              mountPath: /var/www/html/storage
+            - name: oauth-public-key
+              mountPath: /oauth-public.key
+              subPath: oauth-public.key
+            - name: monica-secrets
+              mountPath: /oauth-private.key
+              subPath: oauth-private.key
       containers:
         - name: monica
           image: monica:4.1.2-apache
@@ -31,3 +49,10 @@ spec:
         # not sure if this needs to be a PVC?
         - name: storage
           emptyDir: {}
+        - name: oauth-public-key
+          configMap:
+            name: monica-oauth-public
+        - name: monica-secrets
+          secret:
+            secretName: monica-secrets
+          

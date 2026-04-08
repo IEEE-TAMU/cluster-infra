@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mautic
+resources:
+  - mautic-namespace.yaml
+  - mautic-database.yaml
+  - mautic-user.yaml
+  - mautic-grant.yaml
+  - mautic-configmap.yaml
+  - mautic-deployment.yaml
+  # - mautic-cron-deployment.yaml
+  # - mautic-worker-deployment.yaml
+  - mautic-service.yaml
+  - mautic-ingressroute.yaml
+  - mautic-pvc.yaml

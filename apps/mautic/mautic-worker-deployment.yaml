@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mautic-worker
+spec:
+  selector:
+    matchLabels:
+      app: mautic-worker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mautic-worker
+    spec:
+      containers:
+        - name: mautic-worker
+          image: mautic/mautic:7.0.1-apache
+          envFrom:
+            - configMapRef:
+                name: mautic-config
+            - secretRef:
+                name: mautic-secrets
+          env:
+            - name: DOCKER_MAUTIC_ROLE
+              value: mautic_worker

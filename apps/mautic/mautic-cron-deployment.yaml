@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mautic-cron
+spec:
+  selector:
+    matchLabels:
+      app: mautic-cron
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mautic-cron
+    spec:
+      containers:
+        - name: mautic-cron
+          image: mautic/mautic:7.0.1-apache
+          envFrom:
+            - configMapRef:
+                name: mautic-config
+            - secretRef:
+                name: mautic-secrets
+          env:
+            - name: DOCKER_MAUTIC_ROLE
+              value: mautic_cron

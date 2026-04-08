@@ -1,0 +1,11 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mautic
+spec:
+  routes:
+    - match: Host(`mautic.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: mautic
+          port: 80

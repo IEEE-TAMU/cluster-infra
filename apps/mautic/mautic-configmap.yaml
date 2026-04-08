@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mautic-config
+data:
+  MAUTIC_DB_DATABASE: mautic
+  MAUTIC_DB_PORT: "3306"
+  MAUTIC_DB_HOST: mariadb-primary.mariadb.svc
+  MAUTIC_DB_USER: mautic

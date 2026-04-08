@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mautic
+spec:
+  selector:
+    matchLabels:
+      app: mautic
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mautic
+    spec:
+      containers:
+        - name: mautic
+          image: mautic/mautic:7.0.1-apache
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: mautic-config
+            - secretRef:
+                name: mautic-secrets
+          env:
+            - name: DOCKER_MAUTIC_ROLE
+              value: mautic_web
+          volumeMounts:
+            - name: mautic-data
+              mountPath: /var/www/html/config
+              subPath: config
+            - name: mautic-data
+              mountPath: /var/www/html/var/logs
+              subPath: logs
+            - name: mautic-data
+              mountPath: /var/www/html/docroot/media/files
+              subPath: media-files
+            - name: mautic-data
+              mountPath: /var/www/html/docroot/media/images
+              subPath: media-images
+            - name: mautic-data
+              mountPath: /var/www/html/docroot/translations
+              subPath: translations
+      volumes:
+        - name: mautic-data
+          persistentVolumeClaim:
+            claimName: mautic-pvc

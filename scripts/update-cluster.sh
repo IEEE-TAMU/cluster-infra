@@ -56,7 +56,8 @@ for host in "${HOSTS[@]}"; do
 
     # nixos-rebuild with or without reboot
     echo "Running nixos-rebuild on $host..."
-    ssh -J "$JUMP_HOST" "root@$host" "nixos-rebuild switch --flake github:ieee-tamu/nix-cluster --refresh"
+    # ssh -J "$JUMP_HOST" "root@$host" "nixos-rebuild switch --flake github:ieee-tamu/nix-cluster --refresh"
+    ssh -J "$JUMP_HOST" "root@$host" "nixos-rebuild switch --flake git+https://github.com/ieee-tamu/nix-cluster --refresh"
 
     # Skip waiting for reboot if NO_REBOOT is true
     if [ "$NO_REBOOT" = false ]; then

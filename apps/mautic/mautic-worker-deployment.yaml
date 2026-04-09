@@ -23,3 +23,23 @@ spec:
           env:
             - name: DOCKER_MAUTIC_ROLE
               value: mautic_worker
+          volumeMounts:
+            - name: mautic-data
+              mountPath: /var/www/html/config
+              subPath: config
+            - name: mautic-data
+              mountPath: /var/www/html/var/logs
+              subPath: logs
+            - name: mautic-data
+              mountPath: /var/www/html/docroot/media/files
+              subPath: media-files
+            - name: mautic-data
+              mountPath: /var/www/html/docroot/media/images
+              subPath: media-images
+            - name: mautic-data
+              mountPath: /var/www/html/docroot/translations
+              subPath: translations
+      volumes:
+        - name: mautic-data
+          persistentVolumeClaim:
+            claimName: mautic-pvc

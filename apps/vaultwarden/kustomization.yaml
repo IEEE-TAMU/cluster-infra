@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: vaultwarden
 resources:
   - vaultwarden-namespace.yaml
+  - vaultwarden-pvc.yaml
   - vaultwarden-database.yaml
   - vaultwarden-user.yaml
   - vaultwarden-grant.yaml

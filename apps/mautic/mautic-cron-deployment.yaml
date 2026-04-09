@@ -24,6 +24,8 @@ spec:
             - name: DOCKER_MAUTIC_ROLE
               value: mautic_cron
           volumeMounts:
+            - name: mautic-cron-config
+              mountPath: /opt/mautic/cron
             - name: mautic-data
               mountPath: /var/www/html/config
               subPath: config
@@ -40,6 +42,12 @@ spec:
               mountPath: /var/www/html/docroot/translations
               subPath: translations
       volumes:
+        - name: mautic-cron-config
+          configMap:
+            name: mautic-cron-config
+            items:
+              - key: mautic_cron
+                path: mautic
         - name: mautic-data
           persistentVolumeClaim:
             claimName: mautic-pvc

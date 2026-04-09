@@ -9,6 +9,7 @@ resources:
   - mautic-configmap.yaml
   - mautic-deployment.yaml
   - mautic-cron-deployment.yaml
+  - mautic-cron-configmap.yaml
   - mautic-worker-deployment.yaml
   - mautic-service.yaml
   - mautic-ingressroute.yaml

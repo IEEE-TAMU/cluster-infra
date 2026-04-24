@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mautic-worker
-          image: mautic/mautic:7.0.1-apache
+          image: mautic/mautic:7.1.0-apache
           envFrom:
             - configMapRef:
                 name: mautic-config

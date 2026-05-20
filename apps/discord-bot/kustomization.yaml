@@ -3,6 +3,9 @@ kind: Kustomization
 namespace: discord
 resources:
   - discord-namespace.yaml
+  - discord-database.yaml
+  - discord-user.yaml
+  - discord-grant.yaml
   - discord-configmap.yaml
   - discord-deployment.yaml
   - discord-service.yaml

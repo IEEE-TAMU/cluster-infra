@@ -1,0 +1,13 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: Database
+metadata:
+  name: discord
+spec:
+  mariaDbRef:
+    name: mariadb
+    namespace: mariadb
+  characterSet: utf8mb4
+  collate: utf8mb4_unicode_ci
+  cleanupPolicy: Skip
+  requeueInterval: 30s
+  retryInterval: 5s

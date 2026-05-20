@@ -7,3 +7,7 @@ data:
   API_PORT: "3000"
   GUILD_ID: "1361409163523129584"
   CALENDAR_ICS_URL: https://portal.ieeetamu.org/api/v1/calendar
+  KANBAN_DB_HOST: mariadb-primary.mariadb.svc
+  KANBAN_DB_PORT: "3306"
+  KANBAN_DB_USER: discord
+  KANBAN_DB_NAME: discord

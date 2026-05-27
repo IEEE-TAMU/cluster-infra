@@ -15,3 +15,4 @@ data:
   DISCORD_CLIENT_ID: "1397986260823576586"
   DISCORD_BOT_URL: http://discord.discord.svc.cluster.local:3000
   GOOGLE_CLIENT_ID: 872806013525-rhioieckdkjgnmtdha127uf6opf61ffm.apps.googleusercontent.com
+  MAUTIC_BASE_URL: http://mautic.mautic.svc.cluster.local

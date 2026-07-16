@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     git-hooks.url = "github:gigamonster256/git-hooks.nix";
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };

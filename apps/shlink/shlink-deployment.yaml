@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: shlink
-          image: shlinkio/shlink:5.1.5
+          image: shlinkio/shlink:5.1.6
           ports:
             - containerPort: 8080
           envFrom:

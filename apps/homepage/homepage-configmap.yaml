@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: homepage-config
 data:
+  DISCORD_BOT_URL: http://discord.discord.svc.cluster.local:3000
+  DISCORD_NOTIFY_SOURCE: homepage-contact
   PORT: "3000"
   SMTP_PORT: "25"
   SMTP_HOST: email.email.svc.cluster.local

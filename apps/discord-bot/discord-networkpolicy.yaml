@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: discord-api-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app: discord
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: portal
+          podSelector:
+            matchLabels:
+              app: portal
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: homepage
+          podSelector:
+            matchLabels:
+              app: homepage
+      ports:
+        - protocol: TCP
+          port: 3000

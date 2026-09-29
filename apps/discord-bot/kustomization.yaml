@@ -6,3 +6,4 @@ resources:
   - discord-configmap.yaml
   - discord-deployment.yaml
   - discord-service.yaml
+  - discord-networkpolicy.yaml

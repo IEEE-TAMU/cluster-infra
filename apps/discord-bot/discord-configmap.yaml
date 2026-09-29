@@ -7,3 +7,4 @@ data:
   API_PORT: "3000"
   GUILD_ID: "1361409163523129584"
   CALENDAR_ICS_URL: https://portal.ieeetamu.org/api/v1/calendar
+  NOTIFY_ROUTES: portal-events:1554587778539454599,homepage-contact:1554587778539454599,default:1554587778539454599

@@ -12,3 +12,4 @@ spec:
       middlewares:
         - name: traefik-helper-touchicon
           namespace: traefik-helper
+        - name: shlink-request-limits

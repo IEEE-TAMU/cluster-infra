@@ -1,0 +1,12 @@
+# Reject oversized request bodies before they reach PHP.
+# CVE-2026-109618 is triggered through allocation failures while a request is
+# being handled, so keeping bodies small removes the easiest way to get there.
+# Shlink only accepts small JSON payloads, so 1 MiB is generous.
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: shlink-request-limits
+spec:
+  buffering:
+    maxRequestBodyBytes: 1048576
+    memRequestBodyBytes: 1048576

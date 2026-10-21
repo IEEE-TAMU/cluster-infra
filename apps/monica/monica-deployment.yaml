@@ -6,7 +6,10 @@ spec:
   selector:
     matchLabels:
       app: monica
-  replicas: 1
+  # PHP2Shell (CVE-2026-109618 / CVE-2026-109619) mitigation, 2026-10-21.
+  # Scaled to 0; Monica is not actively used. The `monica:4.1.2-apache` tag was
+  # rebuilt on PHP 8.2.35, so this can be scaled back up after a fresh pull.
+  replicas: 0
   template:
     metadata:
       labels:
@@ -55,4 +58,3 @@ spec:
         - name: monica-secrets
           secret:
             secretName: monica-secrets
-          

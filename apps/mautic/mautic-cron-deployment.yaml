@@ -6,7 +6,9 @@ spec:
   selector:
     matchLabels:
       app: mautic-cron
-  replicas: 1
+  # PHP2Shell (CVE-2026-109618 / CVE-2026-109619) mitigation, 2026-10-21.
+  # Scaled to 0 until the image is moved to a PHP 8.3.36+ build.
+  replicas: 0
   template:
     metadata:
       labels:

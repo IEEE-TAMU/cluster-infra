@@ -6,9 +6,9 @@ spec:
   selector:
     matchLabels:
       app: monica
-  # PHP2Shell (CVE-2026-109618 / CVE-2026-109619) mitigation, 2026-10-21.
-  # Scaled to 0; Monica is not actively used. The `monica:4.1.2-apache` tag was
-  # rebuilt on PHP 8.2.35, so this can be scaled back up after a fresh pull.
+  # Scaled to 0 since 2026-10-21; Monica is not actively used.
+  # The 4.1.2-apache tag was rebuilt in place on PHP 8.2.35 for PHP2Shell
+  # (CVE-2026-109618 / CVE-2026-109619), hence imagePullPolicy: Always below.
   replicas: 0
   template:
     metadata:
@@ -18,6 +18,7 @@ spec:
       initContainers:
         - name: init-permissions
           image: monica:4.1.2-apache
+          imagePullPolicy: Always
           command: ["sh", "-c"]
           args:
             - |
@@ -36,6 +37,7 @@ spec:
       containers:
         - name: monica
           image: monica:4.1.2-apache
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           volumeMounts:

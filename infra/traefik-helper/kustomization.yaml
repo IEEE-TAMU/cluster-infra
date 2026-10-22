@@ -9,3 +9,4 @@ resources:
   - traefik-helper-deployment.yaml
   - traefik-helper-favicon-middleware.yaml
   - traefik-helper-redirects-middleware.yaml
+  - traefik-helper-error-pages-middleware.yaml

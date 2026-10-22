@@ -1,0 +1,19 @@
+# Replace Traefik's bare "no available server" 503 with a real maintenance page.
+# The page is served by traefik-helper, and the original status code is kept,
+# so uptime checks still see the service as down.
+#
+# Only used by routers whose backend is expected to be scaled to 0 (Mautic,
+# Monica). The error page request keeps the original Host header, so the page
+# must be self-contained (no relative asset URLs, which would loop back here).
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-helper-error-pages
+spec:
+  errors:
+    status:
+      - "503"
+    service:
+      name: traefik-helper
+      port: 80
+    query: "/{status}.html"

@@ -9,3 +9,6 @@ spec:
       services:
         - name: monica
           port: 80
+      middlewares:
+        - name: traefik-helper-error-pages
+          namespace: traefik-helper

@@ -6,8 +6,10 @@ spec:
   selector:
     matchLabels:
       app: mautic
-  # PHP2Shell (CVE-2026-109618 / CVE-2026-109619) mitigation, 2026-10-21.
-  # Scaled to 0 until the image is moved to a PHP 8.3.36+ build.
+  # Scaled to 0 since 2026-10-21 for PHP2Shell (CVE-2026-109618 /
+  # CVE-2026-109619). No patched 7.1.x image was published; the only fixed
+  # build is 7.2.1-apache, and a 7.2 upgrade previously broke this instance.
+  # Staying down until that migration is validated.
   replicas: 0
   template:
     metadata:

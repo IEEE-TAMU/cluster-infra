@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: shlink
-          image: shlinkio/shlink:5.1.7
+          image: shlinkio/shlink:5.1.8
           ports:
             - containerPort: 8080
           envFrom:
@@ -27,25 +27,4 @@ spec:
               cpu: 100m
               memory: 256Mi
             limits:
-              # Availability boundary for the memory_limit=-1 PHP2Shell mitigation.
               memory: 768Mi
-          volumeMounts:
-            - name: php-hardening
-              mountPath: /usr/local/etc/php/conf.d/zz-php2shell.ini
-              subPath: zz-php2shell.ini
-            - name: roadrunner-config
-              mountPath: /etc/shlink/config/roadrunner/.rr.yml
-              subPath: .rr.yml
-      volumes:
-        - name: php-hardening
-          configMap:
-            name: shlink-hardening
-            items:
-              - key: php2shell.ini
-                path: zz-php2shell.ini
-        - name: roadrunner-config
-          configMap:
-            name: shlink-hardening
-            items:
-              - key: rr.yml
-                path: .rr.yml

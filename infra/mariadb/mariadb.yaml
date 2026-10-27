@@ -20,6 +20,13 @@ spec:
     max_allowed_packet=256M
   replication:
     enabled: true
+    replica:
+      bootstrapFrom:
+        physicalBackupTemplateRef:
+          name: mariadb-replica-recovery-tpl
+      recovery:
+        enabled: true
+        errorDurationThreshold: 1m
   bootstrapFrom:
     backupRef:
       name: cf-s3-backup

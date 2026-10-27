@@ -1,0 +1,31 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: PhysicalBackup
+metadata:
+  name: mariadb-replica-recovery-tpl
+spec:
+  mariaDbRef:
+    name: mariadb
+    # Allow the operator to take the backup from the primary when no replica
+    # is ready. This is required for replica recovery.
+    waitForIt: false
+  schedule:
+    # This resource is a template for replica recovery. It is not scheduled.
+    suspend: true
+  target: PreferReplica
+  compression: bzip2
+  timeout: 1h
+  podAffinity: true
+  storage:
+    s3:
+      bucket: mariadb-backups
+      prefix: mariadb-recovery
+      # webmaster@ieeetamu.org cf account
+      endpoint: 0e6d466dd96fb5b35ed0748ee280321f.r2.cloudflarestorage.com
+      accessKeyIdSecretKeyRef:
+        name: s3-secrets
+        key: access-key-id
+      secretAccessKeySecretKeyRef:
+        name: s3-secrets
+        key: secret-access-key
+      tls:
+        enabled: true

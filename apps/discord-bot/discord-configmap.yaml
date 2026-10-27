@@ -8,3 +8,10 @@ data:
   GUILD_ID: "1361409163523129584"
   CALENDAR_ICS_URL: https://portal.ieeetamu.org/api/v1/calendar
   NOTIFY_ROUTES: portal-events:1554587778539454599,homepage-contact:1554587778539454599,default:1554587778539454599
+  MUSIC_AGENT_URL: "http://192.168.1.10:8787"
+  # Comma-separated role IDs allowed to control playback. When empty, only
+  # members with the Manage Server permission can use the music commands.
+  MUSIC_ALLOWED_ROLE_IDS: ""
+  # Optional comma-separated channel IDs where music commands are allowed.
+  MUSIC_ALLOWED_CHANNEL_IDS: ""
+  MUSIC_COOLDOWN_SECONDS: "5"

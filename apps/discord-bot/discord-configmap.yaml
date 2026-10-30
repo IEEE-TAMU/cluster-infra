@@ -15,3 +15,12 @@ data:
   # Optional comma-separated channel IDs where music commands are allowed.
   MUSIC_ALLOWED_CHANNEL_IDS: ""
   MUSIC_COOLDOWN_SECONDS: "5"
+  # Brother MFC-7360N print control API on ieee-tamu-5B.
+  PRINT_AGENT_URL: "http://192.168.1.10:8788"
+  # Comma-separated role IDs allowed to print. When empty, only members with
+  # the Manage Server permission can use the print commands.
+  PRINT_ALLOWED_ROLE_IDS: "1361409163523129585"
+  # Optional comma-separated channel IDs where print commands are allowed.
+  PRINT_ALLOWED_CHANNEL_IDS: ""
+  PRINT_COOLDOWN_SECONDS: "5"
+  PRINT_MAX_FILE_MB: "10"

@@ -21,3 +21,13 @@ data:
   ADMIN_EMAILS: "chnorton@tamu.edu"
   # Optional Discord role name granted to officers/admins. Defaults to "Officer".
   # DISCORD_OFFICER_ROLE: "Officer"
+  # GitHub OAuth App (member account linking). Requires GITHUB_CLIENT_SECRET in
+  # portal-secrets.
+  GITHUB_CLIENT_ID: "Ov23li5GECVoPR1Nkybi"
+  # GitHub App (organization team sync). Requires GITHUB_APP_PRIVATE_KEY in
+  # portal-secrets. The org/team values below are the defaults.
+  GITHUB_APP_ID: "5547149"
+  GITHUB_APP_INSTALLATION_ID: "177018568"
+  GITHUB_ORG: "IEEE-TAMU"
+  GITHUB_MEMBERS_TEAM: "members"
+  GITHUB_OFFICERS_TEAM: "officers"

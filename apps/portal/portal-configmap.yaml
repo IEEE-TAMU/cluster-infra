@@ -16,3 +16,8 @@ data:
   DISCORD_BOT_URL: http://discord.discord.svc.cluster.local:3000
   GOOGLE_CLIENT_ID: 872806013525-rhioieckdkjgnmtdha127uf6opf61ffm.apps.googleusercontent.com
   MAUTIC_BASE_URL: http://mautic.mautic.svc.cluster.local
+  # Comma-separated member emails granted admin on boot. Used to bootstrap the
+  # first admin and as a break-glass recovery path. Never demotes anyone.
+  ADMIN_EMAILS: "chnorton@tamu.edu"
+  # Optional Discord role name granted to officers/admins. Defaults to "Officer".
+  # DISCORD_OFFICER_ROLE: "Officer"

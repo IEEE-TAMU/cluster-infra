@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: lounge
-          image: ghcr.io/ieee-tamu/lounge:0.1.2
+          image: ghcr.io/ieee-tamu/lounge:0.2.0
           ports:
             - containerPort: 3000
           envFrom:

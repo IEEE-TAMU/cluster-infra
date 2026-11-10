@@ -6,7 +6,7 @@ agent on `ieee-tamu-5B`.
 
 - Host: `lounge.ieeetamu.org`
 - Image: `ghcr.io/ieee-tamu/lounge:0.1.2`
-- Portal client: `ieee-tamu-lounge`
+- Portal client: `oidc__Pe6cCksIt9m5wJX` (managed in `/admin/oidc-clients`)
 - Music agent: `http://192.168.1.10:8787`
 
 The pod needs egress to the lounge host on TCP 8787 and to

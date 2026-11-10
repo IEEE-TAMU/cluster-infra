@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: portal
-          image: ghcr.io/ieee-tamu/portal:0.3.0
+          image: ghcr.io/ieee-tamu/portal:0.3.1
           ports:
             - containerPort: 4000
           envFrom:
@@ -30,7 +30,7 @@ spec:
       # perform migrations
       initContainers:
         - name: ecto-migrate
-          image: ghcr.io/ieee-tamu/portal:0.3.0
+          image: ghcr.io/ieee-tamu/portal:0.3.1
           command: ["/app/bin/migrate"]
           envFrom:
             - configMapRef:

@@ -4,5 +4,3 @@ metadata:
   name: portal-oidc-config
 data:
   PORTAL_OIDC_ISSUER: https://portal.ieeetamu.org
-  LOUNGE_OIDC_CLIENT_ID: ieee-tamu-lounge
-  LOUNGE_OIDC_REDIRECT_URIS: https://lounge.ieeetamu.org/api/auth/callback,http://localhost:3000/api/auth/callback

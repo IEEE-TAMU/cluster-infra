@@ -1,0 +1,11 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: lounge
+spec:
+  routes:
+    - match: Host(`lounge.ieeetamu.org`)
+      kind: Rule
+      services:
+        - name: lounge
+          port: 3000

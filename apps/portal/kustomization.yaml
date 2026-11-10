@@ -7,6 +7,7 @@ resources:
   - portal-user.yaml
   - portal-grant.yaml
   - portal-configmap.yaml
+  - portal-oidc-configmap.yaml
   - portal-deployment.yaml
   - portal-service.yaml
   - portal-ingressroute.yaml

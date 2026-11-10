@@ -5,7 +5,6 @@ keys:
     - &jadonLee8 age1rukdr63zmsh22l8hfwdc402agdt4cv6u2pk0z4pxjcdu2lrh05vqphmllc
   - &hosts
     - &cluster_pgp 75B5F14CB9CF5A951C935E86203E3E4D22C1B89B
-
 creation_rules:
   - path_regex: k3s\.enc\.yaml$
     encrypted_regex: ^client-key(-data)?$
@@ -18,8 +17,10 @@ creation_rules:
   - path_regex: secrets/.*\.yaml$
     encrypted_regex: ^(data|stringData)$
     key_groups:
+      # Caleb's PGP encryption subkey is expired; use the cluster key plus the
+      # age recipients for secrets. The cluster key is what Flux uses to
+      # decrypt at reconcile time.
       - pgp:
-          - *caleb_pgp
           - *cluster_pgp
         age:
           - *caleb_age

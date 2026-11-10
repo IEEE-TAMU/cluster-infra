@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lounge-config
+data:
+  APP_BASE_URL: https://lounge.ieeetamu.org
+  PORTAL_OIDC_ISSUER: https://portal.ieeetamu.org
+  PORTAL_OIDC_CLIENT_ID: ieee-tamu-lounge
+  MUSIC_AGENT_URL: http://192.168.1.10:8787
+  PLAYER_COOLDOWN_SECONDS: "3"
+  SESSION_MAX_AGE_SECONDS: "28800"

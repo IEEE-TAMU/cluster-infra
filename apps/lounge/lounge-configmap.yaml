@@ -7,6 +7,6 @@ data:
   PORTAL_OIDC_ISSUER: https://portal.ieeetamu.org
   PORTAL_OIDC_CLIENT_ID: oidc__Pe6cCksIt9m5wJX
   MUSIC_AGENT_URL: http://192.168.1.10:8787
-  PLAYER_COOLDOWN_SECONDS: "3"
+  PLAYER_COOLDOWN_SECONDS: "0"
   # Keep officer sessions short; the portal session makes re-login seamless.
   SESSION_MAX_AGE_SECONDS: "3600"

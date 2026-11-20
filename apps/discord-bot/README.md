@@ -2,6 +2,8 @@
 
 This Discord bot listens to messages in the specified channel and re-posts everything from that channel through a GroupMe bot to an associated GroupMe group.
 
+Discord role, channel, and guild IDs are defined once in [`discord-ids.yaml`](./discord-ids.yaml) with a comment for each. `discord-configmap.yaml` references them as `$(VARIABLE_NAME)` and kustomize substitutes the real IDs at build time.
+
 It also exposes the lounge music slash commands. Those commands are disabled unless `MUSIC_AGENT_URL` is set; in production it points at the mpv control API on `ieee-tamu-5B` (`http://192.168.1.10:8787`). The pod needs egress to that address on TCP 8787.
 
 Upcoming tracks can be reordered with `/move <from> <to>`; both positions use the same numbering as `/queue`. Spotify links are supported when an officer has connected the lounge's Spotify account from the lounge web app. Spotify manages its own queue, so `/move`, `/remove`, and `/clear` are unavailable while Spotify is the active source.

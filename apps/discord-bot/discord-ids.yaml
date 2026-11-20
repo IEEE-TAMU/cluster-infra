@@ -1,0 +1,22 @@
+# Human-readable names for every Discord ID used by the bot.
+#
+# Change the snowflake IDs here, then reference them as $(VARIABLE_NAME) in
+# discord-configmap.yaml. kustomization.yaml maps each key below to a
+# kustomize var, and kustomizeconfig.yaml allows vars in ConfigMap data.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: discord-ids
+data:
+  # IEEE TAMU Discord server (guild).
+  guild: "1361409163523129584"
+  # @Officer role: allowed to use the lounge music, print, and 3D-printer
+  # commands.
+  officer_role: "1361409163523129585"
+  # #bot-test-channel in the older IEEE TAMU guild (742238731444158566).
+  # MONITOR_CHANNEL_ID is a leftover from the removed GroupMe bridge and is
+  # no longer read by the bot.
+  monitor_channel: "1344375037716856893"
+  # #officer-bot-notifications: receives portal/homepage alerts and 3D-print
+  # finished/failed snapshots.
+  officer_bot_notifications_channel: "1554587778539454599"

@@ -3,7 +3,42 @@ kind: Kustomization
 namespace: discord
 resources:
   - discord-namespace.yaml
+  - discord-ids.yaml
   - discord-configmap.yaml
   - discord-deployment.yaml
   - discord-service.yaml
   - discord-networkpolicy.yaml
+configurations:
+  - kustomizeconfig.yaml
+# `vars` is deprecated in favor of `replacements`, but replacements cannot
+# interpolate several IDs into a single value (NOTIFY_ROUTES). Keep using vars
+# so every Discord ID comes from discord-ids.yaml.
+vars:
+  - name: IEEE_TAMU_GUILD_ID
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: discord-ids
+    fieldref:
+      fieldpath: data.guild
+  - name: OFFICER_ROLE_ID
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: discord-ids
+    fieldref:
+      fieldpath: data.officer_role
+  - name: BOT_TEST_CHANNEL_ID
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: discord-ids
+    fieldref:
+      fieldpath: data.monitor_channel
+  - name: OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: discord-ids
+    fieldref:
+      fieldpath: data.officer_bot_notifications_channel

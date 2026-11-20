@@ -1,0 +1,6 @@
+# Allow kustomize vars (`$(NAME)`) to be expanded inside ConfigMap data.
+# Kustomize only expands vars in the fields listed here, which is what lets
+# discord-configmap.yaml reference the IDs defined in discord-ids.yaml.
+varReference:
+  - path: data
+    kind: ConfigMap

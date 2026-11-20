@@ -11,6 +11,9 @@ spec:
     metadata:
       labels:
         app: discord
+      annotations:
+        # Bump this when discord-config changes so pods pick up new env vars.
+        ieee-tamu.org/config-revision: "2026-11-20-projects-team-3dprint"
     spec:
       containers:
         - name: discord

@@ -14,7 +14,7 @@ To restrict who can control playback, set `MUSIC_ALLOWED_ROLE_IDS` and/or `MUSIC
 
 Printing uses the same access model: set `PRINT_ALLOWED_ROLE_IDS` and/or `PRINT_ALLOWED_CHANNEL_IDS`. `PRINT_AGENT_TOKEN` can be added to `discord-secrets` to match the print agent's `tokenFile`; `PRINT_MAX_FILE_MB` controls the upload limit.
 
-The 3D printer slash commands (`/3dprint`, `/3dprint-status`, `/3dprint-stop`) are disabled unless `BAMBU_AGENT_URL` is set; in production it points at the Bambu agent on `ieee-tamu-5B` (`http://192.168.1.10:8789`). The pod needs egress to that address on TCP 8789. `BAMBU_AGENT_TOKEN` can be added to `discord-secrets` to match the agent's `tokenFile`; `BAMBU_MAX_FILE_MB` controls the upload limit (25 MB by default to match Discord).
+The 3D printer slash commands (`/3dprint`, `/3dprint-status`, `/3dprint-stop`) are disabled unless `BAMBU_AGENT_URL` is set; in production it points at the Bambu agent on `ieee-tamu-5B` (`http://192.168.1.10:8789`). The pod needs egress to that address on TCP 8789. `BAMBU_AGENT_TOKEN` can be added to `discord-secrets` to match the agent's `tokenFile`; `BAMBU_MAX_FILE_MB` controls the upload limit (25 MB by default to match Discord). `BAMBU_ALLOWED_ROLE_IDS` grants both **Officer** and **Projects Team** access.
 
 `/3dprint` uploads the file first, then shows an ephemeral mapping UI with one select menu per sliced material. The embed lists both the sliced materials and the live AMS/external filaments; there is no automatic matching. Pressing **Start print** submits the selected tray IDs to the agent's `POST /start` endpoint.
 

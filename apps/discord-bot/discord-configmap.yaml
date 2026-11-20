@@ -31,7 +31,7 @@ data:
   BAMBU_AGENT_URL: "http://192.168.1.10:8789"
   # Comma-separated role IDs allowed to use the 3D printer. When empty, only
   # members with the Manage Server permission can use the 3D printer commands.
-  BAMBU_ALLOWED_ROLE_IDS: "$(OFFICER_ROLE_ID)"
+  BAMBU_ALLOWED_ROLE_IDS: "$(OFFICER_ROLE_ID),$(PROJECTS_TEAM_ROLE_ID)"
   # Optional comma-separated channel IDs where 3D printer commands are allowed.
   BAMBU_ALLOWED_CHANNEL_IDS: ""
   BAMBU_COOLDOWN_SECONDS: "10"

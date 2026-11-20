@@ -28,6 +28,13 @@ vars:
       name: discord-ids
     fieldref:
       fieldpath: data.officer_role
+  - name: PROJECTS_TEAM_ROLE_ID
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: discord-ids
+    fieldref:
+      fieldpath: data.projects_team_role
   - name: BOT_TEST_CHANNEL_ID
     objref:
       apiVersion: v1

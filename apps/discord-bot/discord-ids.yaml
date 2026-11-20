@@ -13,6 +13,8 @@ data:
   # @Officer role: allowed to use the lounge music, print, and 3D-printer
   # commands.
   officer_role: "1361409163523129585"
+  # @Projects Team role: allowed to use the 3D-printer commands.
+  projects_team_role: "1552751067157102743"
   # #bot-test-channel in the older IEEE TAMU guild (742238731444158566).
   # MONITOR_CHANNEL_ID is a leftover from the removed GroupMe bridge and is
   # no longer read by the bot.

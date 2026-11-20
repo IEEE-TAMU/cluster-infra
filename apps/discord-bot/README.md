@@ -11,3 +11,5 @@ The print slash commands (`/print`, `/print-status`, `/print-cancel`) are disabl
 To restrict who can control playback, set `MUSIC_ALLOWED_ROLE_IDS` and/or `MUSIC_ALLOWED_CHANNEL_IDS` in `discord-configmap.yaml`. If no role allowlist is set, only members with **Manage Server** can use the commands. `MUSIC_AGENT_TOKEN` can be added to `discord-secrets` to match the player's `tokenFile`.
 
 Printing uses the same access model: set `PRINT_ALLOWED_ROLE_IDS` and/or `PRINT_ALLOWED_CHANNEL_IDS`. `PRINT_AGENT_TOKEN` can be added to `discord-secrets` to match the print agent's `tokenFile`; `PRINT_MAX_FILE_MB` controls the upload limit.
+
+The 3D printer slash commands (`/3dprint`, `/3dprint-status`, `/3dprint-stop`) are disabled unless `BAMBU_AGENT_URL` is set; in production it points at the Bambu agent on `ieee-tamu-5B` (`http://192.168.1.10:8789`). The pod needs egress to that address on TCP 8789. `BAMBU_AGENT_TOKEN` can be added to `discord-secrets` to match the agent's `tokenFile`; `BAMBU_MAX_FILE_MB` controls the upload limit (25 MB by default to match Discord).

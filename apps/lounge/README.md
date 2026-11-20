@@ -6,7 +6,7 @@ agent, print jobs to the `print-agent`, and 3D print jobs to the
 `bambu-printer-agent` on `ieee-tamu-5B`.
 
 - Host: `lounge.ieeetamu.org`
-- Image: `ghcr.io/ieee-tamu/lounge:0.1.4`
+- Image: `ghcr.io/ieee-tamu/lounge:0.1.5`
 - Portal client: `oidc__Pe6cCksIt9m5wJX` (managed in `/admin/oidc-clients`)
 - Music agent: `http://192.168.1.10:8787`
 - Print agent: `http://192.168.1.10:8788`
@@ -15,6 +15,11 @@ agent, print jobs to the `print-agent`, and 3D print jobs to the
 The pod needs egress to the lounge host on TCP 8787, 8788, and 8789 and to
 `portal.ieeetamu.org` on TCP 443. Only Traefik is allowed to reach the app on
 TCP 3000.
+
+The 3D print page uses an upload → map → start flow. It uploads the
+`.gcode.3mf` to the Bambu agent, shows the sliced materials alongside the live
+AMS/external filaments, and requires an explicit selection for every sliced
+material before it submits the job. There is no automatic matching.
 
 Access is officer-only: the portal callback rejects non-officers, and every page
 and API route requires the `officer` or `admin` role.

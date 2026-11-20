@@ -33,3 +33,6 @@ data:
   BAMBU_ALLOWED_CHANNEL_IDS: ""
   BAMBU_COOLDOWN_SECONDS: "10"
   BAMBU_MAX_FILE_MB: "25"
+  # officer-bot-notifications: post a snapshot when a 3D print finishes/fails.
+  BAMBU_NOTIFY_CHANNEL_ID: "1554587778539454599"
+  BAMBU_NOTIFY_POLL_SECONDS: "20"

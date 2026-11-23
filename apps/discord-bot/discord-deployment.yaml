@@ -13,11 +13,11 @@ spec:
         app: discord
       annotations:
         # Bump this when discord-config changes so pods pick up new env vars.
-        ieee-tamu.org/config-revision: "2026-11-23-light-sensor-presence"
+        ieee-tamu.org/config-revision: "2026-11-23-light-sensor-presence-2"
     spec:
       containers:
         - name: discord
-          image: ghcr.io/ieee-tamu/discord-bot:0.2.15
+          image: ghcr.io/ieee-tamu/discord-bot:0.2.16
           ports:
             - containerPort: 3000
           envFrom:

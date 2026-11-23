@@ -50,3 +50,10 @@ vars:
       name: discord-ids
     fieldref:
       fieldpath: data.officer_bot_notifications_channel
+  - name: OFFICER_HOURS_CHANNEL_ID
+    objref:
+      apiVersion: v1
+      kind: ConfigMap
+      name: discord-ids
+    fieldref:
+      fieldpath: data.officer_hours_channel

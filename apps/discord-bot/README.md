@@ -24,7 +24,7 @@ When `BAMBU_NOTIFY_CHANNEL_ID` is set, the bot watches the printer and posts a p
 
 An ESP32 with a light sensor in the lounge posts whether the room light is on to
 the bot's `/officer-status` endpoint. The bot keeps a minimal embed updated in
-`#officer-bot-notifications` and marks the sensor offline after 90 seconds
+`#officer-hours` and marks the sensor offline after 90 seconds
 without a heartbeat.
 
 The endpoint is reachable from the lounge LAN through Traefik on any k3s node:
@@ -41,5 +41,5 @@ The rest of the bot API stays cluster-internal. Requests must send
 `secrets/discord.yaml`.
 
 The channel comes from `discord-ids.yaml`
-(`OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID`). The device ID, Wi-Fi credentials, and
+(`OFFICER_HOURS_CHANNEL_ID`). The device ID, Wi-Fi credentials, and
 key are flashed in the firmware under `discord/firmware/lounge-light-sensor`.

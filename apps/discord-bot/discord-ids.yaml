@@ -22,3 +22,5 @@ data:
   # #officer-bot-notifications: receives portal/homepage alerts and 3D-print
   # finished/failed snapshots.
   officer_bot_notifications_channel: "1554587778539454599"
+  # #officer-hours: live officer presence embed from the lounge light sensor.
+  officer_hours_channel: "1574539414066172014"

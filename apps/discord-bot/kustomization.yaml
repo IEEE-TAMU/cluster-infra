@@ -9,7 +9,6 @@ resources:
   - discord-service.yaml
   - discord-networkpolicy.yaml
   - discord-ingressroute.yaml
-  - discord-officer-status-allowlist.yaml
 configurations:
   - kustomizeconfig.yaml
 # `vars` is deprecated in favor of `replacements`, but replacements cannot

@@ -32,11 +32,12 @@ The endpoint is reachable from the lounge LAN through Traefik on any k3s node:
 POST http://192.168.1.10/officer-status
 ```
 
-`discord-ingressroute.yaml` exposes only the exact `/officer-status` path, so the
-rest of the bot API stays cluster-internal. `officer-status-lan-only` restricts
-that route to `192.168.1.0/24`; requests through the public Cloudflare tunnel are
-rejected with 403. Requests must send `Authorization: Bearer
-<OFFICER_STATUS_API_KEY>`; the key lives in `secrets/discord.yaml`.
+`discord-ingressroute.yaml` exposes only the exact `/officer-status` path, and
+only for `Host: 192.168.1.10`. Requests through the public Cloudflare tunnel use
+a different host and return 404, so this endpoint never leaves the lounge LAN.
+The rest of the bot API stays cluster-internal. Requests must send
+`Authorization: Bearer <OFFICER_STATUS_API_KEY>`; the key lives in
+`secrets/discord.yaml`.
 
 The channel comes from `discord-ids.yaml`
 (`OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID`). The device ID, Wi-Fi credentials, and

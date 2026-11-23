@@ -33,11 +33,10 @@ POST http://192.168.1.10/officer-status
 ```
 
 `discord-ingressroute.yaml` exposes only the exact `/officer-status` path, so the
-rest of the bot API stays cluster-internal. Requests must send
-`Authorization: Bearer <OFFICER_STATUS_API_KEY>`; the key lives in
-`secrets/discord.yaml`. The public
-`https://discord.ieeetamu.org/officer-status` form also works through the
-Cloudflare tunnel.
+rest of the bot API stays cluster-internal. `officer-status-lan-only` restricts
+that route to `192.168.1.0/24`; requests through the public Cloudflare tunnel are
+rejected with 403. Requests must send `Authorization: Bearer
+<OFFICER_STATUS_API_KEY>`; the key lives in `secrets/discord.yaml`.
 
 The channel comes from `discord-ids.yaml`
 (`OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID`). The device ID, Wi-Fi credentials, and

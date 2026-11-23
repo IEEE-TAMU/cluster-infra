@@ -9,6 +9,8 @@ spec:
     # exposed; the bearer API key is still required.
     - match: Path(`/officer-status`)
       kind: Rule
+      middlewares:
+        - name: officer-status-lan-only
       services:
         - name: discord
           port: 3000

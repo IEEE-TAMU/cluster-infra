@@ -1,0 +1,11 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: officer-status-lan-only
+spec:
+  # The ESP32 lives on the lounge LAN (192.168.1.0/24). Requests arriving
+  # through the Cloudflare tunnel resolve to a public client IP and are rejected.
+  ipAllowList:
+    sourceRange:
+      - 192.168.1.0/24
+    rejectStatusCode: 403

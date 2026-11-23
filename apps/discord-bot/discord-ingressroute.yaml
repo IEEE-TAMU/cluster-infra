@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: discord-officer-status
+spec:
+  routes:
+    # The ESP32 posts to http://192.168.1.10/officer-status on the lounge LAN.
+    # Path-only so the device does not need DNS or TLS. Only this exact path is
+    # exposed; the bearer API key is still required.
+    - match: Path(`/officer-status`)
+      kind: Rule
+      services:
+        - name: discord
+          port: 3000

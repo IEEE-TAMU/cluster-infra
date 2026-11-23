@@ -19,3 +19,26 @@ The 3D printer slash commands (`/3dprint`, `/3dprint-status`, `/3dprint-stop`) a
 `/3dprint` uploads the file first, then shows an ephemeral mapping UI with one select menu per sliced material. The embed lists both the sliced materials and the live AMS/external filaments; there is no automatic matching. Pressing **Start print** submits the selected tray IDs to the agent's `POST /start` endpoint.
 
 When `BAMBU_NOTIFY_CHANNEL_ID` is set, the bot watches the printer and posts a print-finished/failed embed with a camera snapshot to that channel. It polls every `BAMBU_NOTIFY_POLL_SECONDS` (default 20) and only posts on an active → terminal transition, so restarts don't duplicate notifications.
+
+## Lounge officer status button
+
+An ESP32 button in the lounge posts in/out state to the bot's `/officer-status`
+endpoint. The bot keeps one embed updated in `#officer-bot-notifications` and
+marks the device offline after 90 seconds without a heartbeat.
+
+The endpoint is reachable from the lounge LAN through Traefik on any k3s node:
+
+```
+POST http://192.168.1.10/officer-status
+```
+
+`discord-ingressroute.yaml` exposes only the exact `/officer-status` path, so the
+rest of the bot API stays cluster-internal. Requests must send
+`Authorization: Bearer <OFFICER_STATUS_API_KEY>`; the key lives in
+`secrets/discord.yaml`. The public
+`https://discord.ieeetamu.org/officer-status` form also works through the
+Cloudflare tunnel.
+
+The channel comes from `discord-ids.yaml`
+(`OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID`). The device ID, Wi-Fi credentials, and
+key are flashed in the firmware under `discord/firmware/lounge-officer-button`.

@@ -8,6 +8,7 @@ resources:
   - discord-deployment.yaml
   - discord-service.yaml
   - discord-networkpolicy.yaml
+  - discord-ingressroute.yaml
 configurations:
   - kustomizeconfig.yaml
 # `vars` is deprecated in favor of `replacements`, but replacements cannot

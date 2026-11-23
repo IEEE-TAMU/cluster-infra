@@ -13,11 +13,11 @@ spec:
         app: discord
       annotations:
         # Bump this when discord-config changes so pods pick up new env vars.
-        ieee-tamu.org/config-revision: "2026-11-20-projects-team-3dprint"
+        ieee-tamu.org/config-revision: "2026-11-23-officer-status"
     spec:
       containers:
         - name: discord
-          image: ghcr.io/ieee-tamu/discord-bot:0.2.13
+          image: ghcr.io/ieee-tamu/discord-bot:0.2.14
           ports:
             - containerPort: 3000
           envFrom:

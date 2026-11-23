@@ -39,7 +39,7 @@ data:
   # officer-bot-notifications: post a snapshot when a 3D print finishes/fails.
   BAMBU_NOTIFY_CHANNEL_ID: "$(OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID)"
   BAMBU_NOTIFY_POLL_SECONDS: "20"
-  # ESP32 lounge officer status button. The bot keeps one embed updated in this
-  # channel and marks the device offline after a missed heartbeat window.
+  # ESP32 lounge light sensor. The bot keeps one minimal presence embed updated
+  # in this channel and marks the sensor offline after a missed heartbeat window.
   OFFICER_STATUS_CHANNEL_ID: "$(OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID)"
   OFFICER_STATUS_STALE_SECONDS: "90"

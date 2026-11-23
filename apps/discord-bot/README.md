@@ -20,11 +20,12 @@ The 3D printer slash commands (`/3dprint`, `/3dprint-status`, `/3dprint-stop`) a
 
 When `BAMBU_NOTIFY_CHANNEL_ID` is set, the bot watches the printer and posts a print-finished/failed embed with a camera snapshot to that channel. It polls every `BAMBU_NOTIFY_POLL_SECONDS` (default 20) and only posts on an active → terminal transition, so restarts don't duplicate notifications.
 
-## Lounge officer status button
+## Lounge officer presence sensor
 
-An ESP32 button in the lounge posts in/out state to the bot's `/officer-status`
-endpoint. The bot keeps one embed updated in `#officer-bot-notifications` and
-marks the device offline after 90 seconds without a heartbeat.
+An ESP32 with a light sensor in the lounge posts whether the room light is on to
+the bot's `/officer-status` endpoint. The bot keeps a minimal embed updated in
+`#officer-bot-notifications` and marks the sensor offline after 90 seconds
+without a heartbeat.
 
 The endpoint is reachable from the lounge LAN through Traefik on any k3s node:
 
@@ -41,4 +42,4 @@ The rest of the bot API stays cluster-internal. Requests must send
 
 The channel comes from `discord-ids.yaml`
 (`OFFICER_BOT_NOTIFICATIONS_CHANNEL_ID`). The device ID, Wi-Fi credentials, and
-key are flashed in the firmware under `discord/firmware/lounge-officer-button`.
+key are flashed in the firmware under `discord/firmware/lounge-light-sensor`.
